@@ -2,11 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import $ from 'jquery';
 import Popper from 'popper.js';
+import 'font-awesome/css/font-awesome.min.css';
+import "material-design-iconic-font/dist/css/material-design-iconic-font.min.css"
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '../main-css/main.css'
+import '../main-css/util.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

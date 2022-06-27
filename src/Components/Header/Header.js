@@ -1,5 +1,6 @@
 import './util.css';
 import "./main.css"
+import logo from "../../images/icons/logo-01.png"
 const Header = () => {
   return (
     <>
@@ -37,7 +38,7 @@ const Header = () => {
 					
 					{/* <!-- Logo desktop -->		 */}
 					<a href="www.google.com" className="logo">
-						<img src="images/icons/logo-01.png" alt="IMG-LOGO"/>
+						<img src={logo} alt="IMG-LOGO"/>
 					</a>
 
 					{/* <!-- Menu desktop --> */}
@@ -96,7 +97,7 @@ const Header = () => {
 		<div className="wrap-header-mobile">
 			{/* <!-- Logo moblie -->		 */}
 			<div className="logo-mobile">
-				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"/></a>
+				<a href="index.html"><img src={require("../../images/icons/logo-01.png")} alt="IMG-LOGO"/></a>
 			</div>
 
 			{/* <!-- Icon header --> */}
@@ -192,7 +193,7 @@ const Header = () => {
 		<div className="modal-search-header flex-c-m trans-04 js-hide-modal-search">
 			<div className="container-search-header">
 				<button className="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-					<img src="images/icons/icon-close2.png" alt="CLOSE"/>
+					<img src={require("../../images/icons/icon-close2.png")} alt="CLOSE"/>
 				</button>
 
 				<form className="wrap-search-header flex-w p-l-15">

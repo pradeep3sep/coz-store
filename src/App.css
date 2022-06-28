@@ -4,3 +4,6 @@ a {
 ul {
     padding-left: 0px;
 }
+.dis-none.panel-filter.w-full.p-t-10.show {
+    display: block;
+}

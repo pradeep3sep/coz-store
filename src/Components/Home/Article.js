@@ -1,19 +1,13 @@
 import React from "react";
 
 export default function Article(props) {
-    let passing = props.aricelData
-    console.log(props.aricelData.image);
-    // need theing
-    // props.gender
-    // props.image
-    // props.productName
-    // props.price
+    let passing = props.aricelDa
   return (
     <div className={`col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${passing.gender}`}>
       {/* <!-- Block2 --> */}
       <div className="block2">
         <div className="block2-pic hov-img0">
-          <img src={require("../../images/product-01.jpg")} alt="IMG-PRODUCT" />
+          <img src={passing.image} alt="IMG-PRODUCT" />
 
           <a
             href="google.com"

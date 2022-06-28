@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Cart(props) {
-  console.log(props,"cart");
   return (
     <>
       <div className={`wrap-header-cart js-panel-cart ${props.onClick[0] ? "show-header-cart" : ''}`}>

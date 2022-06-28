@@ -2,7 +2,6 @@ import "./util.css";
 import "./main.css";
 import logo from "../../images/icons/logo-01.png";
 const Header = (props) => {
-  console.log(props);
   return (
     <>
       <header>

@@ -18,6 +18,7 @@ export default function Slider() {
               spaceBetween={50}
               slidesPerView={1}
               navigation
+              loop={true}
               autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,

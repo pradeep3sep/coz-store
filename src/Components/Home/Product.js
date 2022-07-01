@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Article from "./Article";
 import FilterHome from "./FilterHome";
+import Search from "./Search";
 
 export default function Product() {
   let aricelData = [
@@ -103,12 +104,24 @@ export default function Product() {
   ];
   const [activeCat, setactiveCat] = useState("All Products");
   const [filterProducts, setfilterProducts] = useState(aricelData);
+
+
   const [shwFlter, setshowFilter] = useState(false);
+  const [shwSearch, setshwSearch] = useState(false);
 
   function showFilter(){
     setshowFilter(!shwFlter);
+  };
+  function showSearch(){
+    setshwSearch(!shwSearch);
   }
 
+  function seachtype(value){
+    const updateVal = aricelData.filter((dumdata) => {
+      return dumdata.productName.toLowerCase().includes(value.toLowerCase())
+    })
+    setfilterProducts(updateVal);
+  }
   function clickCat(event) {
     setactiveCat(event.target.textContent);
     if (event.target.textContent !== "All Products") {
@@ -179,7 +192,7 @@ export default function Product() {
                 Filter
               </div>
 
-              <div className="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+              <div className={`flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search ${shwSearch ? "show-search" : ""}`} onClick={showSearch}>
                 <i className="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
                 <i className="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
                 Search
@@ -187,20 +200,7 @@ export default function Product() {
             </div>
 
             {/* <!-- Search product --> */}
-            <div className="dis-none panel-search w-full p-t-10 p-b-15">
-              <div className="bor8 dis-flex p-l-15">
-                <button className="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
-                  <i className="zmdi zmdi-search"></i>
-                </button>
-
-                <input
-                  className="mtext-107 cl2 size-114 plh2 p-r-15"
-                  type="text"
-                  name="search-product"
-                  placeholder="Search"
-                />
-              </div>
-            </div>
+            <Search data={shwSearch} word={seachtype}/>
 
             {/* <!-- Filter --> */}
             <FilterHome data={shwFlter}/>

@@ -4,6 +4,6 @@ a {
 ul {
     padding-left: 0px;
 }
-.dis-none.panel-filter.w-full.p-t-10.show {
+.dis-none.panel-filter.w-full.p-t-10.show,.dis-none.panel-search.w-full.p-t-10.p-b-15.show {
     display: block;
 }

@@ -158,31 +158,6 @@ export default function Product() {
                   </button>
                 );
               })}
-
-              {/* below is the same for in html form */}
-              {/* <button className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-                            All Products
-                        </button>
-
-                        <button className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                            Women
-                        </button>
-
-                        <button className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                            Men
-                        </button>
-
-                        <button className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-                            Bag
-                        </button>
-
-                        <button className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-                            Shoes
-                        </button>
-
-                        <button className="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-                            Watches
-                        </button> */}
             </div>
 
             <div className="flex-w flex-c-m m-tb-10">

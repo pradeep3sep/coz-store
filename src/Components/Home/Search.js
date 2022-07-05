@@ -5,7 +5,6 @@ export default function Search(props) {
   const inputRef = useRef();
   function handleInput(){
     props.word(inputRef.current.value)
-    // console.log(inputRef.current.value,"jii");
   }
   return (
     <div className={`dis-none panel-search w-full p-t-10 p-b-15 ${props.data ? "show" : ""}`}>

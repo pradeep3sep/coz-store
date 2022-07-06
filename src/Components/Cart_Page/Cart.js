@@ -126,8 +126,8 @@ export default function Cart() {
                       <th className="column-4">Quantity</th>
                       <th className="column-5">Total</th>
                     </tr>
-                    {cart_list_items.map((cart_list_item)=>{
-                      return  <ProductTable data={cart_list_item} />
+                    {cart_list_items.map((cart_list_item,index)=>{
+                      return  <ProductTable data={cart_list_item} key={`pt_${index}`} />
                     })}
                   </table>
                 </div>

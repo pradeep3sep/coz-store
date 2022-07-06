@@ -7,3 +7,6 @@ ul {
 .dis-none.panel-filter.w-full.p-t-10.show,.dis-none.panel-search.w-full.p-t-10.p-b-15.show {
     display: block;
 }
+.menu-desktop li .active {
+    color: #6c7ae0;
+}

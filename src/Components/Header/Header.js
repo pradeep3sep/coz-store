@@ -1,7 +1,7 @@
 import "./util.css";
 import "./main.css";
 import logo from "../../images/icons/logo-01.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 const Header = (props) => {
   return (
     <>
@@ -15,19 +15,19 @@ const Header = (props) => {
               </div>
 
               <div className="right-top-bar flex-w h-full">
-                <a href="www.google.com" className="flex-c-m trans-04 p-lr-25">
+                <a href="/" className="flex-c-m trans-04 p-lr-25">
                   Help & FAQs
                 </a>
 
-                <a href="www.google.com" className="flex-c-m trans-04 p-lr-25">
+                <a href="/" className="flex-c-m trans-04 p-lr-25">
                   My Account
                 </a>
 
-                <a href="www.google.com" className="flex-c-m trans-04 p-lr-25">
+                <a href="/" className="flex-c-m trans-04 p-lr-25">
                   EN
                 </a>
 
-                <a href="www.google.com" className="flex-c-m trans-04 p-lr-25">
+                <a href="/" className="flex-c-m trans-04 p-lr-25">
                   USD
                 </a>
               </div>
@@ -37,54 +37,46 @@ const Header = (props) => {
           <div className="wrap-menu-desktop">
             <nav className="limiter-menu-desktop container">
               {/* <!-- Logo desktop -->		 */}
-              <a href="www.google.com" className="logo">
+              <Link to="/" className="logo">
                 <img src={logo} alt="IMG-LOGO" />
-              </a>
+              </Link>
 
               {/* <!-- Menu desktop --> */}
               <div className="menu-desktop">
                 <ul className="main-menu">
-                  <li className="active-menu">
-                    <a href="index.html">Home</a>
+                  <li>
+                    <NavLink to="/">Home</NavLink>
                     <ul className="sub-menu">
                       <li>
-                        <NavLink to="/hm_1" >Homepage 1</NavLink>
-                        {/* <a href="index.html">Homepage 1</a> */}
+                        <NavLink to="/hm_1">Homepage 1</NavLink>
                       </li>
                       <li>
-                        <NavLink to="/hm_2" >Homepage 2</NavLink>
-                        {/* <a href="home-02.html">Homepage 2</a> */}
+                        <NavLink to="/hm_2">Homepage 2</NavLink>
                       </li>
                       <li>
-                        <NavLink to="/hm_3" >Homepage 3</NavLink>
-                        {/* <a href="home-03.html">Homepage 3</a> */}
+                        <NavLink to="/hm_3">Homepage 3</NavLink>
                       </li>
                     </ul>
                   </li>
 
                   <li>
-                    <NavLink to="/product" >Shop</NavLink>
-                    {/* <a href="product.html">Shop</a> */}
+                    <NavLink to="/product">Shop</NavLink>
                   </li>
 
                   <li className="label1" data-label1="hot">
-                    <NavLink to="/cart" >Features</NavLink>
-                    {/* <a href="shoping-cart.html">Features</a> */}
+                    <NavLink to="/cart">Features</NavLink>
                   </li>
 
                   <li>
-                    <NavLink to="/blog" >Blog</NavLink>
-                    {/* <a href="blog.html">Blog</a> */}
+                    <NavLink to="/blog">Blog</NavLink>
                   </li>
 
                   <li>
-                    <NavLink to="/about" >About</NavLink>
-                    {/* <a href="about.html">About</a> */}
+                    <NavLink to="/about">About</NavLink>
                   </li>
 
                   <li>
-                    <NavLink to="/contact" >Contact</NavLink>
-                    {/* <a href="contact.html">Contact</a> */}
+                    <NavLink to="/contact">Contact</NavLink>
                   </li>
                 </ul>
               </div>

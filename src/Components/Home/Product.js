@@ -182,8 +182,8 @@ export default function Product() {
           </div>
 
           <div className="row isotope-grid">
-            {filterProducts.map((aricelDa) => {
-              return <Article aricelDa={aricelDa} />;
+            {filterProducts.map((aricelDa,index) => {
+              return <Article aricelDa={aricelDa} key={`p1_${index}`} />;
             })}
           </div>
 

@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ProductCarasoul from './ProductCarasoul'
+import VariationSelect from './VariationSelect';
 
-export default function Modal() {
+export default function Modal(props) {
+	let visible = props.modalVisibility;
+	let variations_size = ["XS", "S", "M", "L", "XL", "XXL"];
+	let variations_color = ["Red", "Blue", "White", "Grey"];
   return (
-    <div className="wrap-modal1 js-modal1 p-t-60 p-b-20">
+    <div className={`wrap-modal1 js-modal1 p-t-60 p-b-20 ${visible ? 'show-modal1' : ''}`}>
 		<div className="overlay-modal1 js-hide-modal1"></div>
 
 		<div className="container">
@@ -13,44 +18,7 @@ export default function Modal() {
 
 				<div className="row">
 					<div className="col-md-6 col-lg-7 p-b-30">
-						<div className="p-l-25 p-r-30 p-lr-0-lg">
-							<div className="wrap-slick3 flex-sb flex-w">
-								<div className="wrap-slick3-dots"></div>
-								<div className="wrap-slick3-arrows flex-sb-m flex-w"></div>
-
-								<div className="slick3 gallery-lb">
-									<div className="item-slick3" data-thumb="images/product-detail-01.jpg">
-										<div className="wrap-pic-w pos-relative">
-											<img src={require("../../images/product-detail-01.jpg")} alt="IMG-PRODUCT"/>
-
-											<a className="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
-												<i className="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-									<div className="item-slick3" data-thumb="images/product-detail-02.jpg">
-										<div className="wrap-pic-w pos-relative">
-											<img src={require("../../images/product-detail-02.jpg")} alt="IMG-PRODUCT"/>
-
-											<a className="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
-												<i className="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-
-									<div className="item-slick3" data-thumb="images/product-detail-03.jpg">
-										<div className="wrap-pic-w pos-relative">
-											<img src={require("../../images/product-detail-03.jpg")} alt="IMG-PRODUCT"/>
-
-											<a className="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
-												<i className="fa fa-expand"></i>
-											</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						<ProductCarasoul/>
 					</div>
 					
 					<div className="col-md-6 col-lg-5 p-b-30">
@@ -67,44 +35,19 @@ export default function Modal() {
 								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
 							</p>
 							
-							{/* <!--  --> */}
 							<div className="p-t-33">
-								<div className="flex-w flex-r-m p-b-10">
+								<div className="variationfull p-b-10">
 									<div className="size-203 flex-c-m respon6">
 										Size
 									</div>
-
-									<div className="size-204 respon6-next">
-										<div className="rs1-select2 bor8 bg0">
-											<select className="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Size S</option>
-												<option>Size M</option>
-												<option>Size L</option>
-												<option>Size XL</option>
-											</select>
-											<div className="dropDownSelect2"></div>
-										</div>
-									</div>
+									<VariationSelect passvariations={variations_size}/>
 								</div>
 
-								<div className="flex-w flex-r-m p-b-10">
+								<div className="variationfull p-b-10">
 									<div className="size-203 flex-c-m respon6">
 										Color
 									</div>
-
-									<div className="size-204 respon6-next">
-										<div className="rs1-select2 bor8 bg0">
-											<select className="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Red</option>
-												<option>Blue</option>
-												<option>White</option>
-												<option>Grey</option>
-											</select>
-											<div className="dropDownSelect2"></div>
-										</div>
-									</div>
+									<VariationSelect passvariations={variations_color}/>
 								</div>
 
 								<div className="flex-w flex-r-m p-b-10">
@@ -114,7 +57,7 @@ export default function Modal() {
 												<i className="fs-16 zmdi zmdi-minus"></i>
 											</div>
 
-											<input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1"/>
+											<input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product" defaultValue="1"/>
 
 											<div className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i className="fs-16 zmdi zmdi-plus"></i>

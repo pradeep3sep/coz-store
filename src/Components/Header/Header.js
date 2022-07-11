@@ -96,7 +96,7 @@ const Header = (props) => {
                 </div>
 
                 <a
-                  href="www.google.com"
+                  href="/"
                   className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
                   data-notify="0"
                 >
@@ -134,7 +134,7 @@ const Header = (props) => {
             </div>
 
             <a
-              href="www.google.com"
+              href="/"
               className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti"
               data-notify="0"
             >
@@ -161,19 +161,19 @@ const Header = (props) => {
 
             <li>
               <div className="right-top-bar flex-w h-full">
-                <a href="www.google.com" className="flex-c-m p-lr-10 trans-04">
+                <a href="/" className="flex-c-m p-lr-10 trans-04">
                   Help & FAQs
                 </a>
 
-                <a href="www.google.com" className="flex-c-m p-lr-10 trans-04">
+                <a href="/" className="flex-c-m p-lr-10 trans-04">
                   My Account
                 </a>
 
-                <a href="www.google.com" className="flex-c-m p-lr-10 trans-04">
+                <a href="/" className="flex-c-m p-lr-10 trans-04">
                   EN
                 </a>
 
-                <a href="www.google.com" className="flex-c-m p-lr-10 trans-04">
+                <a href="/" className="flex-c-m p-lr-10 trans-04">
                   USD
                 </a>
               </div>

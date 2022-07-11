@@ -27,7 +27,7 @@ export default function Cart(props) {
 
                 <div className="header-cart-item-txt p-t-8">
                   <a
-                    href="google.com"
+                    href="/"
                     className="header-cart-item-name m-b-18 hov-cl1 trans-04"
                   >
                     White Shirt Pleat
@@ -47,7 +47,7 @@ export default function Cart(props) {
 
                 <div className="header-cart-item-txt p-t-8">
                   <a
-                    href="google.com"
+                    href="/"
                     className="header-cart-item-name m-b-18 hov-cl1 trans-04"
                   >
                     Converse All Star
@@ -67,7 +67,7 @@ export default function Cart(props) {
 
                 <div className="header-cart-item-txt p-t-8">
                   <a
-                    href="google.com"
+                    href="/"
                     className="header-cart-item-name m-b-18 hov-cl1 trans-04"
                   >
                     Nixon Porter Leather

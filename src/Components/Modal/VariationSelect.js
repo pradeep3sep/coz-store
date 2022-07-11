@@ -1,14 +1,18 @@
+import { useState, useEffect } from "react";
+
 export default function VariationSelect(props) {
-    let variations = props.passvariations;
+  const [clicked, setclicked] = useState()
+  console.log(clicked,'im clicked');
+  
+  function clickeding(){
+      setclicked(props.value)
+  }
+  
   return (
     <div>
-      {variations.map((variation) => {
-        return (
-          <label className="variation"  key={variation}>
-            {variation} <input type="text" className="d-none"/>
-          </label>
-        );
-      })}
+      <label className={`variation ${clicked ? "bg-color-change": ''}`}>
+        {props.value} <input type="radio" className="d-none"  onClick={clickeding} name='favSelect' />
+      </label>
     </div>
   );
 }

@@ -1,17 +1,26 @@
 import React from "react";
 
 export default function Article(props) {
-    let passing = props.aricelDa
+    let passing = props.aricelDa;
+
+    function clickeArticle(){
+      props.clickedProduct(passing.id)
+      props.showModal();
+    }
+
+
   return (
     <div className={`col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${passing.gender}`}>
       {/* <!-- Block2 --> */}
       <div className="block2">
         <div className="block2-pic hov-img0">
-          <img src={passing.image} alt="IMG-PRODUCT" />
+          <img src={passing.image[0]} alt="IMG-PRODUCT" />
 
           <a
-            href="google.com"
+            role="button"
+            aria-pressed="false"
             className="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1"
+            onClick={clickeArticle}
           >
             Quick View
           </a>
@@ -31,7 +40,7 @@ export default function Article(props) {
 
           <div className="block2-txt-child2 flex-r p-t-3">
             <a
-              href="google.com"
+              href="/"
               className="btn-addwish-b2 dis-block pos-relative js-addwish-b2"
             >
               <img

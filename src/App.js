@@ -1,5 +1,6 @@
 import "./App.css";
 import "./css/select2/select2.min.css";
+import React, { useState } from "react";
 import Cart from "./Components/Cart_Page/Cart";
 import Footer from "./Components/Footer/Footer";
 import MainHeader from "./Components/Header/MainHeader";
@@ -12,7 +13,12 @@ import MainContact from "./Components/Contact/MainContact";
 import Modal from "./Components/Modal/Modal";
 
 function App() {
-  let modalVisibility = false;
+  // const [modalVisibility, setmodalVisibility] = useState(true)
+
+  // function showModal(){
+  //   setmodalVisibility(true)
+  // }
+
   return (
     <>
       <MainHeader />
@@ -24,7 +30,7 @@ function App() {
         <Route exact path="/about" element={<MainAbout />} />
         <Route exact path="/contact" element={<MainContact />} />
       </Routes>
-      <Modal modalVisibility={modalVisibility} />
+      {/* <Modal modalVisibility={modalVisibility} /> */}
       <Footer />
     </>
   );

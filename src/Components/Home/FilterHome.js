@@ -9,26 +9,26 @@ export default function FilterHome(props) {
 
           <ul>
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Default
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Popularity
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Average rating
               </a>
             </li>
 
             <li className="p-b-6">
               <a
-                href="google.com"
+                href="/"
                 className="filter-link stext-106 trans-04 filter-link-active"
               >
                 Newness
@@ -36,13 +36,13 @@ export default function FilterHome(props) {
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Price: Low to High
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Price: High to Low
               </a>
             </li>
@@ -55,7 +55,7 @@ export default function FilterHome(props) {
           <ul>
             <li className="p-b-6">
               <a
-                href="google.com"
+                href="/"
                 className="filter-link stext-106 trans-04 filter-link-active"
               >
                 All
@@ -63,31 +63,31 @@ export default function FilterHome(props) {
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 $0.00 - $50.00
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 $50.00 - $100.00
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 $100.00 - $150.00
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 $150.00 - $200.00
               </a>
             </li>
 
             <li className="p-b-6">
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 $200.00+
               </a>
             </li>
@@ -103,7 +103,7 @@ export default function FilterHome(props) {
                 <i className="zmdi zmdi-circle"></i>
               </span>
 
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Black
               </a>
             </li>
@@ -114,7 +114,7 @@ export default function FilterHome(props) {
               </span>
 
               <a
-                href="google.com"
+                href="/"
                 className="filter-link stext-106 trans-04 filter-link-active"
               >
                 Blue
@@ -126,7 +126,7 @@ export default function FilterHome(props) {
                 <i className="zmdi zmdi-circle"></i>
               </span>
 
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Grey
               </a>
             </li>
@@ -136,7 +136,7 @@ export default function FilterHome(props) {
                 <i className="zmdi zmdi-circle"></i>
               </span>
 
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Green
               </a>
             </li>
@@ -146,7 +146,7 @@ export default function FilterHome(props) {
                 <i className="zmdi zmdi-circle"></i>
               </span>
 
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 Red
               </a>
             </li>
@@ -156,7 +156,7 @@ export default function FilterHome(props) {
                 <i className="zmdi zmdi-circle-o"></i>
               </span>
 
-              <a href="google.com" className="filter-link stext-106 trans-04">
+              <a href="/" className="filter-link stext-106 trans-04">
                 White
               </a>
             </li>
@@ -168,35 +168,35 @@ export default function FilterHome(props) {
 
           <div className="flex-w p-t-4 m-r--5">
             <a
-              href="google.com"
+              href="/"
               className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
             >
               Fashion
             </a>
 
             <a
-              href="google.com"
+              href="/"
               className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
             >
               Lifestyle
             </a>
 
             <a
-              href="google.com"
+              href="/"
               className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
             >
               Denim
             </a>
 
             <a
-              href="google.com"
+              href="/"
               className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
             >
               Streetstyle
             </a>
 
             <a
-              href="google.com"
+              href="/"
               className="flex-c-m stext-107 cl6 size-301 bor7 p-lr-15 hov-tag1 trans-04 m-r-5 m-b-5"
             >
               Crafts

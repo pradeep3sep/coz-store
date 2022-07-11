@@ -1,34 +1,36 @@
-import React, { useState } from 'react'
 import ProductCarasoul from './ProductCarasoul'
 import VariationSelect from './VariationSelect';
 
 export default function Modal(props) {
-	let visible = props.modalVisibility;
-	let variations_size = ["XS", "S", "M", "L", "XL", "XXL"];
-	let variations_color = ["Red", "Blue", "White", "Grey"];
+	let prodctName = props.modalProduct.productName;
+	let price = props.modalProduct.price;
+	let imageArray = props.modalProduct.image;
+	let variations_size = props.modalProduct.size;
+	let variations_color = props.modalProduct.color;
+
   return (
-    <div className={`wrap-modal1 js-modal1 p-t-60 p-b-20 ${visible ? 'show-modal1' : ''}`}>
+    <div className='wrap-modal1 js-modal1 p-t-60 p-b-20 show-modal1'>
 		<div className="overlay-modal1 js-hide-modal1"></div>
 
 		<div className="container">
 			<div className="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
-				<button className="how-pos3 hov3 trans-04 js-hide-modal1">
+				<button className="how-pos3 hov3 trans-04 js-hide-modal1" onClick={props.closeModal}>
 					<img src={require("../../images/icons/icon-close.png")} alt="CLOSE"/>
 				</button>
 
 				<div className="row">
 					<div className="col-md-6 col-lg-7 p-b-30">
-						<ProductCarasoul/>
+						<ProductCarasoul imageArray={imageArray}/>
 					</div>
 					
 					<div className="col-md-6 col-lg-5 p-b-30">
 						<div className="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 className="mtext-105 cl2 js-name-detail p-b-14">
-								Lightweight Jacket
+								{prodctName}
 							</h4>
 
 							<span className="mtext-106 cl2">
-								$58.79
+								${price}
 							</span>
 
 							<p className="stext-102 cl3 p-t-23">
@@ -40,14 +42,18 @@ export default function Modal(props) {
 									<div className="size-203 flex-c-m respon6">
 										Size
 									</div>
-									<VariationSelect passvariations={variations_size}/>
+									{variations_size.map((size)=>{
+										return <VariationSelect value={size} key={size} />
+									})}
 								</div>
 
 								<div className="variationfull p-b-10">
 									<div className="size-203 flex-c-m respon6">
 										Color
 									</div>
-									<VariationSelect passvariations={variations_color}/>
+									{variations_color.map((color)=>{
+										return <VariationSelect value={color} key={color}/>
+									})}
 								</div>
 
 								<div className="flex-w flex-r-m p-b-10">

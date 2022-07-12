@@ -18,7 +18,7 @@ ul {
 .variation {
   display: inline-block;
   border: 1px solid #e6e6e6;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   margin-right: 10px !important;
   line-height: 37px !important;

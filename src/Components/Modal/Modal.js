@@ -1,5 +1,39 @@
 import ProductCarasoul from './ProductCarasoul'
 import VariationSelect from './VariationSelect';
+import QtySelector from './QtySelector'
+import { useReducer } from 'react';
+
+const initValue = {
+	Size: '',
+	Color: '',
+	Quantity: 1,
+}
+
+
+function productReducer(state, action){
+	if (action.type === "SIZE_SELECTED") {
+	 	return	{
+			Size: action.value,
+			Color: state.Color,
+			Quantity: state.Quantity,
+		}
+	}
+	if (action.type === "COLOR_SELECTED") {
+		return	{
+			Size: state.Size,
+			Color: action.value,
+			Quantity: state.Quantity,
+		}
+	}
+	if (action.type === "QTY_SELECTED") {
+		return	{
+			Size: state.Size,
+			Color: state.Color,
+			Quantity: action.value,
+		}
+	}
+}
+
 
 export default function Modal(props) {
 	let prodctName = props.modalProduct.productName;
@@ -7,6 +41,26 @@ export default function Modal(props) {
 	let imageArray = props.modalProduct.image;
 	let variations_size = props.modalProduct.size;
 	let variations_color = props.modalProduct.color;
+
+	const [productState, productdispatch] = useReducer(productReducer, initValue )
+
+	function sizeSelected(size){
+		productdispatch({type: 'SIZE_SELECTED', value: size})
+		// console.log("size selected",size);
+	}
+	function colorSelected(color){
+		productdispatch({type: 'COLOR_SELECTED', value: color})
+		// console.log("color selected",color);
+	}
+	function qtySelected(qty){
+		productdispatch({type: 'QTY_SELECTED', value: qty})
+		// console.log("qty selected", qty);
+	}
+	function show(){
+		console.log(productState,"full state");
+	}
+
+
 
   return (
     <div className='wrap-modal1 js-modal1 p-t-60 p-b-20 show-modal1'>
@@ -42,35 +96,20 @@ export default function Modal(props) {
 									<div className="size-203 flex-c-m respon6">
 										Size
 									</div>
-									{variations_size.map((size)=>{
-										return <VariationSelect value={size} key={size} />
-									})}
+									<VariationSelect data={variations_size} Selected={sizeSelected}/>
 								</div>
 
 								<div className="variationfull p-b-10">
 									<div className="size-203 flex-c-m respon6">
 										Color
 									</div>
-									{variations_color.map((color)=>{
-										return <VariationSelect value={color} key={color}/>
-									})}
+									<VariationSelect data={variations_color} Selected={colorSelected}/>
 								</div>
 
 								<div className="flex-w flex-r-m p-b-10">
 									<div className="size-204 flex-w flex-m respon6-next">
-										<div className="wrap-num-product flex-w m-r-20 m-tb-10">
-											<div className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i className="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input className="mtext-104 cl3 txt-center num-product" type="number" name="num-product" defaultValue="1"/>
-
-											<div className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i className="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-
-										<button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+										<QtySelector qtySelected={qtySelected}/>
+										<button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onClick={show}>
 											Add to cart
 										</button>
 									</div>

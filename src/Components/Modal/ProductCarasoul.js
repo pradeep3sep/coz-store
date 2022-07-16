@@ -17,9 +17,10 @@ export default function App(props) {
     verticalSwiping: true,
     swipeToSlide : true,
     focusOnSelect: true,
+    arrows: false
   };
   const settings1 = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     vertical: false,
@@ -38,7 +39,7 @@ export default function App(props) {
               })}
           </Slider>
         </div>
-        <div className='col-10'>
+        <div className='col-10 horizontal_slider'>
         <Slider {...settings1} ref={(slider1) => setNav1(slider1)} asNavFor={nav2} >
             {props.imageArray.map((arr,index)=>{
                 return <div key={`_p${index}`}><img src={arr} alt="" width="551px" /></div>

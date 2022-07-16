@@ -6,7 +6,6 @@ export default function QtySelector(props) {
   
   useEffect(() => {
     props.qtySelected(qty)
-  
   }, [qty])
   
 
@@ -18,7 +17,10 @@ export default function QtySelector(props) {
 
   function qtyDecrement(){
     setqty((old)=>{
-      return old - 1
+      if (old >1) {
+        return old - 1
+      }
+      return 1
     })
   }
 

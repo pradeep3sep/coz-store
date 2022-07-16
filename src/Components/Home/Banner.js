@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 export default function Banner() {
   return (
-    <div className="sec-banner bg0 p-t-80 p-b-50">
+    <div className="sec-banner bg0 p-t-80">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+          <div className="col-md-6 col-xl-4 m-lr-auto">
             {/* <!-- Block1 --> */}
             <div className="block1 wrap-pic-w">
               <img
@@ -37,7 +37,7 @@ export default function Banner() {
             </div>
           </div>
 
-          <div className="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+          <div className="col-md-6 col-xl-4 m-lr-auto">
             {/* <!-- Block1 --> */}
             <div className="block1 wrap-pic-w">
               <img
@@ -68,7 +68,7 @@ export default function Banner() {
             </div>
           </div>
 
-          <div className="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+          <div className="col-md-6 col-xl-4 m-lr-auto">
             {/* <!-- Block1 --> */}
             <div className="block1 wrap-pic-w">
               <img

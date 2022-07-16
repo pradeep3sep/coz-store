@@ -4,7 +4,7 @@ export default function TitleAbout() {
   return (
     <>
       <section
-        className="bg-img1 txt-center p-lr-15 p-tb-92"
+        className="bg-img1 txt-center m-t-84 p-lr-15 p-tb-92"
         style={{
           backgroundImage: `url(${require("../../images/bg-01.jpg")})`,
         }}

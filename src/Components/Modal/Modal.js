@@ -1,12 +1,16 @@
 import ProductCarasoul from './ProductCarasoul'
 import VariationSelect from './VariationSelect';
 import QtySelector from './QtySelector'
-import { useReducer } from 'react';
+import { useReducer, useState } from 'react';
+import swal from 'sweetalert';
+import ZoomModal from './ZoomModal/ZoomModal';
+import ShareIcon from './ShareIcon';
 
 const initValue = {
 	Size: '',
 	Color: '',
 	Quantity: 1,
+	id: 0,
 }
 
 
@@ -16,6 +20,7 @@ function productReducer(state, action){
 			Size: action.value,
 			Color: state.Color,
 			Quantity: state.Quantity,
+			id: action.id,
 		}
 	}
 	if (action.type === "COLOR_SELECTED") {
@@ -23,6 +28,7 @@ function productReducer(state, action){
 			Size: state.Size,
 			Color: action.value,
 			Quantity: state.Quantity,
+			id: state.id,
 		}
 	}
 	if (action.type === "QTY_SELECTED") {
@@ -30,6 +36,7 @@ function productReducer(state, action){
 			Size: state.Size,
 			Color: state.Color,
 			Quantity: action.value,
+			id: state.id,
 		}
 	}
 }
@@ -38,25 +45,32 @@ function productReducer(state, action){
 export default function Modal(props) {
 	let prodctName = props.modalProduct.productName;
 	let price = props.modalProduct.price;
+	let productId = props.modalProduct.id
 	let imageArray = props.modalProduct.image;
 	let variations_size = props.modalProduct.size;
 	let variations_color = props.modalProduct.color;
 
-	const [productState, productdispatch] = useReducer(productReducer, initValue )
+	const [productState, productdispatch] = useReducer(productReducer, initValue );
+	const [zoomModal, setzoomModal] = useState(true)
 
 	function sizeSelected(size){
-		productdispatch({type: 'SIZE_SELECTED', value: size})
-		// console.log("size selected",size);
+		productdispatch({type: 'SIZE_SELECTED', value: size, id:productId})
 	}
 	function colorSelected(color){
 		productdispatch({type: 'COLOR_SELECTED', value: color})
-		// console.log("color selected",color);
 	}
 	function qtySelected(qty){
 		productdispatch({type: 'QTY_SELECTED', value: qty})
-		// console.log("qty selected", qty);
+	}
+	function showZoomModal(){
+		setzoomModal(!zoomModal)
 	}
 	function show(){
+		if (productState.Size.length > 0 && productState.Color.length > 0) {
+			swal("Congratulations!", "Your product has been added to the cart!", "success");
+		} else {
+			swal("OOPS!", "Please select all the combination", "error");
+		}
 		console.log(productState,"full state");
 	}
 
@@ -66,17 +80,19 @@ export default function Modal(props) {
     <div className='wrap-modal1 js-modal1 p-t-60 p-b-20 show-modal1'>
 		<div className="overlay-modal1 js-hide-modal1"></div>
 
-		<div className="container">
+		{zoomModal && <div className="container">
 			<div className="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
 				<button className="how-pos3 hov3 trans-04 js-hide-modal1" onClick={props.closeModal}>
 					<img src={require("../../images/icons/icon-close.png")} alt="CLOSE"/>
 				</button>
 
 				<div className="row">
+					<div className='expand_arrow' onClick={showZoomModal}>
+						<i className="fa fa-expand" aria-hidden="true"></i>
+					</div>
 					<div className="col-md-6 col-lg-7 p-b-30">
 						<ProductCarasoul imageArray={imageArray}/>
 					</div>
-					
 					<div className="col-md-6 col-lg-5 p-b-30">
 						<div className="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 className="mtext-105 cl2 js-name-detail p-b-14">
@@ -115,32 +131,15 @@ export default function Modal(props) {
 									</div>
 								</div>	
 							</div>
-
-							{/* <!--  --> */}
-							<div className="flex-w flex-m p-l-100 p-t-40 respon7">
-								<div className="flex-m bor9 p-r-10 m-r-11">
-									<a href="/" className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-										<i className="zmdi zmdi-favorite"></i>
-									</a>
-								</div>
-
-								<a href="/" className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-									<i className="fa fa-facebook"></i>
-								</a>
-
-								<a href="/" className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-									<i className="fa fa-twitter"></i>
-								</a>
-
-								<a href="/" className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-									<i className="fa fa-google-plus"></i>
-								</a>
-							</div>
+							<ShareIcon/>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>}
+		
+		{!zoomModal && <ZoomModal imageArray={imageArray} showZoomModal={showZoomModal}/>}
+		
 	</div>
   )
 }

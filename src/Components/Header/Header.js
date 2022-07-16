@@ -34,7 +34,7 @@ const Header = (props) => {
             </div>
           </div>
 
-          <div className="wrap-menu-desktop">
+          <div className="wrap-menu-desktop how-shadow1">
             <nav className="limiter-menu-desktop container">
               {/* <!-- Logo desktop -->		 */}
               <Link to="/" className="logo">

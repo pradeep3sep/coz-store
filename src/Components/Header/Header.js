@@ -1,38 +1,20 @@
 import "./util.css";
 import "./main.css";
 import logo from "../../images/icons/logo-01.png";
-import { NavLink, Link } from "react-router-dom";
+import Marquee from './Marquee'
+import { Link } from "react-router-dom";
+import {useSelector} from "react-redux";
+import HeaderMenu from "./HeaderMenu";
+
+
 const Header = (props) => {
+  const cartqty = useSelector(state => state.Cart.qty)
+
   return (
     <>
       <header>
         <div className="container-menu-desktop">
-          {/* <!-- Topbar --> */}
-          <div className="top-bar">
-            <div className="content-topbar flex-sb-m h-full container">
-              <div className="left-top-bar">
-                Free shipping for standard order over $100
-              </div>
-
-              <div className="right-top-bar flex-w h-full">
-                <a href="/" className="flex-c-m trans-04 p-lr-25">
-                  Help & FAQs
-                </a>
-
-                <a href="/" className="flex-c-m trans-04 p-lr-25">
-                  My Account
-                </a>
-
-                <a href="/" className="flex-c-m trans-04 p-lr-25">
-                  EN
-                </a>
-
-                <a href="/" className="flex-c-m trans-04 p-lr-25">
-                  USD
-                </a>
-              </div>
-            </div>
-          </div>
+          <Marquee/>
 
           <div className="wrap-menu-desktop how-shadow1">
             <nav className="limiter-menu-desktop container">
@@ -42,44 +24,7 @@ const Header = (props) => {
               </Link>
 
               {/* <!-- Menu desktop --> */}
-              <div className="menu-desktop">
-                <ul className="main-menu">
-                  <li>
-                    <NavLink to="/">Home</NavLink>
-                    <ul className="sub-menu">
-                      <li>
-                        <NavLink to="/hm_1">Homepage 1</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/hm_2">Homepage 2</NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="/hm_3">Homepage 3</NavLink>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li>
-                    <NavLink to="/product">Shop</NavLink>
-                  </li>
-
-                  <li className="label1" data-label1="hot">
-                    <NavLink to="/cart">Features</NavLink>
-                  </li>
-
-                  <li>
-                    <NavLink to="/blog">Blog</NavLink>
-                  </li>
-
-                  <li>
-                    <NavLink to="/about">About</NavLink>
-                  </li>
-
-                  <li>
-                    <NavLink to="/contact">Contact</NavLink>
-                  </li>
-                </ul>
-              </div>
+              <HeaderMenu/>
 
               {/* <!-- Icon header --> */}
               <div className="wrap-icon-header flex-w flex-r-m">
@@ -89,7 +34,7 @@ const Header = (props) => {
 
                 <div
                   className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
-                  data-notify="2"
+                  data-notify={cartqty}
                   onClick={props.onClick}
                 >
                   <i className="zmdi zmdi-shopping-cart"></i>

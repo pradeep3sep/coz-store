@@ -1,98 +1,57 @@
 import React from "react";
 
 export default function Archieve() {
+  const archievedate = [
+    {
+      monthYear: "July 2018",
+      date: "9",
+    },
+    {
+      monthYear: "June 2018",
+      date: "39",
+    },
+    {
+      monthYear: "May 2018",
+      date: "29",
+    },
+    {
+      monthYear: "April 2018",
+      date: "35",
+    },
+    {
+      monthYear: "March 2018",
+      date: "22",
+    },
+    {
+      monthYear: "February 2018",
+      date: "32",
+    },
+    {
+      monthYear: "January 2018",
+      date: "21",
+    },
+    {
+      monthYear: "December 2017",
+      date: "26",
+    },
+  ];
   return (
     <div className="p-t-55">
       <h4 className="mtext-112 cl2 p-b-20">Archive</h4>
 
       <ul>
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>July 2018</span>
+        {archievedate.map((data,index) => (
+          <li className="p-b-7" key={`_p${index}`}>
+            <a
+              href="/"
+              className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
+            >
+              <span>{data.monthYear}</span>
 
-            <span>(9)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>June 2018</span>
-
-            <span>(39)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>May 2018</span>
-
-            <span>(29)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>April 2018</span>
-
-            <span>(35)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>March 2018</span>
-
-            <span>(22)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>February 2018</span>
-
-            <span>(32)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>January 2018</span>
-
-            <span>(21)</span>
-          </a>
-        </li>
-
-        <li className="p-b-7">
-          <a
-            href="/"
-            className="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2"
-          >
-            <span>December 2017</span>
-
-            <span>(26)</span>
-          </a>
-        </li>
+              <span>({data.date})</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );

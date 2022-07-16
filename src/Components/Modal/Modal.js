@@ -5,6 +5,8 @@ import { useReducer, useState } from 'react';
 import swal from 'sweetalert';
 import ZoomModal from './ZoomModal/ZoomModal';
 import ShareIcon from './ShareIcon';
+import { useDispatch } from 'react-redux';
+import { CartActions } from '../Store/CartProdcutReducer';
 
 const initValue = {
 	Size: '',
@@ -43,6 +45,9 @@ function productReducer(state, action){
 
 
 export default function Modal(props) {
+
+	const dispatch =useDispatch();
+
 	let prodctName = props.modalProduct.productName;
 	let price = props.modalProduct.price;
 	let productId = props.modalProduct.id
@@ -67,6 +72,7 @@ export default function Modal(props) {
 	}
 	function show(){
 		if (productState.Size.length > 0 && productState.Color.length > 0) {
+			dispatch(CartActions.addproduct(productState))
 			swal("Congratulations!", "Your product has been added to the cart!", "success");
 		} else {
 			swal("OOPS!", "Please select all the combination", "error");

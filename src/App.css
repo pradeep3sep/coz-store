@@ -83,3 +83,6 @@ ul {
   align-items: center;
   cursor: pointer;
 }
+.menu-mobile.shomenu {
+  display: block;
+}

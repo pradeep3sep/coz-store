@@ -1,6 +1,10 @@
 import React from "react";
+import CartProduct from "./CartProduct";
+import {useSelector} from "react-redux";
 
 export default function Cart(props) {
+  const cartproductdetails = useSelector(state => state.Cart.items)
+  const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
   return (
     <>
       <div className={`wrap-header-cart js-panel-cart ${props.onClick[0] ? "show-header-cart" : ''}`}>
@@ -17,69 +21,11 @@ export default function Cart(props) {
 
           <div className="header-cart-content flex-w js-pscroll">
             <ul className="header-cart-wrapitem w-full">
-              <li className="header-cart-item flex-w flex-t m-b-12">
-                <div className="header-cart-item-img">
-                  <img
-                    src={require("../../images/item-cart-01.jpg")}
-                    alt="IMG"
-                  />
-                </div>
-
-                <div className="header-cart-item-txt p-t-8">
-                  <a
-                    href="/"
-                    className="header-cart-item-name m-b-18 hov-cl1 trans-04"
-                  >
-                    White Shirt Pleat
-                  </a>
-
-                  <span className="header-cart-item-info">1 x $19.00</span>
-                </div>
-              </li>
-
-              <li className="header-cart-item flex-w flex-t m-b-12">
-                <div className="header-cart-item-img">
-                  <img
-                    src={require("../../images/item-cart-02.jpg")}
-                    alt="IMG"
-                  />
-                </div>
-
-                <div className="header-cart-item-txt p-t-8">
-                  <a
-                    href="/"
-                    className="header-cart-item-name m-b-18 hov-cl1 trans-04"
-                  >
-                    Converse All Star
-                  </a>
-
-                  <span className="header-cart-item-info">1 x $39.00</span>
-                </div>
-              </li>
-
-              <li className="header-cart-item flex-w flex-t m-b-12">
-                <div className="header-cart-item-img">
-                  <img
-                    src={require("../../images/item-cart-03.jpg")}
-                    alt="IMG"
-                  />
-                </div>
-
-                <div className="header-cart-item-txt p-t-8">
-                  <a
-                    href="/"
-                    className="header-cart-item-name m-b-18 hov-cl1 trans-04"
-                  >
-                    Nixon Porter Leather
-                  </a>
-
-                  <span className="header-cart-item-info">1 x $17.00</span>
-                </div>
-              </li>
+              {cartproductdetails.map((cartproductdetail,index)=> <CartProduct key={`-p${index}`} cartproductdetail={cartproductdetail}/>)}
             </ul>
 
             <div className="w-full">
-              <div className="header-cart-total w-full p-tb-40">Total: $75.00</div>
+              <div className="header-cart-total w-full p-tb-40">Total: ${Math.round(cartTotalPrice)}</div>
 
               <div className="header-cart-buttons flex-w w-full">
                 <a

@@ -2,7 +2,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 export default function IconHeader(props) {
-    const cartqty = useSelector(state => state.Cart.qty)
+    const cartqty = useSelector(state => state.Cart.TotalArticle)
   
     return (
     <div className="wrap-icon-header flex-w flex-r-m">

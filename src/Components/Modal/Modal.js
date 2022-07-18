@@ -9,10 +9,13 @@ import { useDispatch } from 'react-redux';
 import { CartActions } from '../Store/CartProdcutReducer';
 
 const initValue = {
+	Image: '',
 	Size: '',
 	Color: '',
 	Quantity: 1,
 	id: 0,
+	Price: '',
+	ProductName: ''
 }
 
 
@@ -23,6 +26,9 @@ function productReducer(state, action){
 			Color: state.Color,
 			Quantity: state.Quantity,
 			id: action.id,
+			Image: action.img,
+			Price: action.price,
+			ProductName: action.prodctName,
 		}
 	}
 	if (action.type === "COLOR_SELECTED") {
@@ -31,6 +37,9 @@ function productReducer(state, action){
 			Color: action.value,
 			Quantity: state.Quantity,
 			id: state.id,
+			Image: state.Image,
+			Price: state.Price,
+			ProductName: state.ProductName,
 		}
 	}
 	if (action.type === "QTY_SELECTED") {
@@ -39,6 +48,9 @@ function productReducer(state, action){
 			Color: state.Color,
 			Quantity: action.value,
 			id: state.id,
+			Image: state.Image,
+			Price: state.Price,
+			ProductName: state.ProductName,
 		}
 	}
 }
@@ -59,7 +71,7 @@ export default function Modal(props) {
 	const [zoomModal, setzoomModal] = useState(true)
 
 	function sizeSelected(size){
-		productdispatch({type: 'SIZE_SELECTED', value: size, id:productId})
+		productdispatch({type: 'SIZE_SELECTED', value: size, id:productId , img: imageArray[0], price: price, prodctName: prodctName})
 	}
 	function colorSelected(color){
 		productdispatch({type: 'COLOR_SELECTED', value: color})
@@ -70,8 +82,8 @@ export default function Modal(props) {
 	function showZoomModal(){
 		setzoomModal(!zoomModal)
 	}
-	function show(){
-		if (productState.Size.length > 0 && productState.Color.length > 0) {
+	function AddToCart(){
+		if (productState.Size && productState.Color) {
 			dispatch(CartActions.addproduct(productState))
 			swal("Congratulations!", "Your product has been added to the cart!", "success");
 		} else {
@@ -131,7 +143,7 @@ export default function Modal(props) {
 								<div className="flex-w flex-r-m p-b-10">
 									<div className="size-204 flex-w flex-m respon6-next">
 										<QtySelector qtySelected={qtySelected}/>
-										<button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onClick={show}>
+										<button className="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail" onClick={AddToCart}>
 											Add to cart
 										</button>
 									</div>

@@ -1,6 +1,9 @@
 import React from "react";
+import {useSelector} from "react-redux";
 
 export default function CartTotal() {
+  const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
+
   return (
     <div className="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
       <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
@@ -12,7 +15,7 @@ export default function CartTotal() {
           </div>
 
           <div className="size-209">
-            <span className="mtext-110 cl2">$79.65</span>
+            <span className="mtext-110 cl2">${cartTotalPrice}</span>
           </div>
         </div>
 
@@ -72,7 +75,7 @@ export default function CartTotal() {
           </div>
 
           <div className="size-209 p-t-1">
-            <span className="mtext-110 cl2">$79.65</span>
+            <span className="mtext-110 cl2">${cartTotalPrice}</span>
           </div>
         </div>
 

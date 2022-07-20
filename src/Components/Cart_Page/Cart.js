@@ -3,22 +3,11 @@ import BreadCrum from "./BreadCrum";
 import CartTotal from "./CartTotal";
 import Coupan from "./Coupan";
 import ProductTable from "./ProductTable";
+import {useSelector} from "react-redux";
 
 export default function Cart() {
-  const cart_list_items = [
-    {
-      gender: "women",
-      image: require("../../images/item-cart-04.jpg"),
-      productName: "Fresh Strawberries",
-      price: "36.00",
-    },
-    {
-        gender: "women",
-        image: require("../../images/item-cart-05.jpg"),
-        productName: "Lightweight Jacket",
-        price: "16.00",
-      },
-  ];
+  const cartproductdetails = useSelector(state => state.Cart.items)
+
   return (
     <div>
       <div className="wrap-header-cart js-panel-cart">
@@ -79,7 +68,7 @@ export default function Cart() {
       </div>
       <BreadCrum/>
       <form className="bg0 p-t-75 p-b-85">
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
               <div className="m-l-25 m-r--38 m-lr-0-xl">
@@ -88,11 +77,12 @@ export default function Cart() {
                     <tr className="table_head">
                       <th className="column-1">Product</th>
                       <th className="column-2"></th>
+                      <th className="column-3">Size</th>
                       <th className="column-3">Price</th>
                       <th className="column-4">Quantity</th>
                       <th className="column-5">Total</th>
                     </tr>
-                    {cart_list_items.map((cart_list_item,index)=>{
+                    {cartproductdetails.map((cart_list_item,index)=>{
                       return  <ProductTable data={cart_list_item} key={`pt_${index}`} />
                     })}
                   </table>

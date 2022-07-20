@@ -6,7 +6,7 @@ export default function QtySelector(props) {
   
   useEffect(() => {
     props.qtySelected(qty)
-  }, [qty])
+  }, [qty,props])
   
 
   function qtyIncrement(){

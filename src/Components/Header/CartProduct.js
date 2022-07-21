@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch} from "react-redux";
+import swal from "sweetalert";
+import { CartActions } from '../Store/CartProdcutReducer';
 
 export default function CartProduct(props) {
     const Color = props.cartproductdetail.Color;
@@ -10,9 +13,17 @@ export default function CartProduct(props) {
     const id = props.cartproductdetail.id;
     console.log(props,"cartdetail");
 
+
+    const dispatch =useDispatch();
+    
+    const removeArticle = ()=>{
+      dispatch(CartActions.removeproduct(props.cartproductdetail))
+      swal("Congratulations!", "Your product has been removed from the cart!", "success");
+    }
+
   return (
     <li className="header-cart-item flex-w flex-t m-b-12">
-      <div className="header-cart-item-img">
+      <div className="header-cart-item-img" onClick={removeArticle}>
         <img src={Image} alt="IMG" />
       </div>
 

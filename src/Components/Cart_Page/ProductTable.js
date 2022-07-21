@@ -1,11 +1,20 @@
 import React from "react";
+import { useDispatch} from "react-redux";
+import { CartActions } from '../Store/CartProdcutReducer';
+import swal from "sweetalert";
 
 export default function ProductTable(props) {
     const comeData = props.data
+
+    const dispatch =useDispatch();
+    const removeArticle = ()=>{
+      dispatch(CartActions.removeproduct(props.data));
+      swal("Congratulations!", "Your product has been removed from the cart!", "success");
+    }
   return (
     <tr className="table_row">
       <td className="column-1">
-        <div className="how-itemcart1">
+        <div className="how-itemcart1" onClick={removeArticle}>
           <img src={comeData.Image} alt="IMG" />
         </div>
       </td>

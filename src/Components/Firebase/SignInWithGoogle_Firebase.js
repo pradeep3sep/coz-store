@@ -38,7 +38,7 @@ export const db = getFirestore();
 //this is for storing the user data in firebase databse which signup with google
 export const createUserDocumentFromAuth = async (userAuth) => {
 
-    //userAuth.uid provide the unique user id by google in reponse
+    //userAuth.uid provide the unique user id by google in reponse, it is document name
     //users is the collection name in firebase 
     const userDocRef = doc(db, 'users', userAuth.uid);
     

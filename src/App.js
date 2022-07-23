@@ -10,6 +10,7 @@ import Product from "./Components/Home/Product";
 import MainBlog from "./Components/Blog/MainBlog";
 import MainAbout from "./Components/About/MainAbout";
 import MainContact from "./Components/Contact/MainContact";
+import SignInWithGoogle from "./Components/SignIn/SignInWithGoogle";
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/blog" element={<MainBlog />} />
         <Route exact path="/about" element={<MainAbout />} />
         <Route exact path="/contact" element={<MainContact />} />
+        <Route exact path="/signin" element={<SignInWithGoogle />} />
       </Routes>
       <Footer />
     </>

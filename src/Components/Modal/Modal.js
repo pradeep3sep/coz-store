@@ -58,7 +58,7 @@ function productReducer(state, action){
 
 export default function Modal(props) {
 
-	const dispatch =useDispatch();
+	const dispatch = useDispatch();
 
 	let prodctName = props.modalProduct.productName;
 	let price = props.modalProduct.price;

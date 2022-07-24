@@ -4,6 +4,7 @@ import CartTotal from "./CartTotal";
 import Coupan from "./Coupan";
 import ProductTable from "./ProductTable";
 import {useSelector} from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const cartproductdetails = useSelector(state => state.Cart.items)
@@ -67,7 +68,9 @@ export default function Cart() {
         </div>
       </div>
       <BreadCrum/>
-      <form className="bg0 p-t-75 p-b-85">
+      {cartproductdetails.length ? 
+      
+        <form className="bg0 p-t-75 p-b-85">
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-10 col-xl-7 m-lr-auto m-b-50">
@@ -94,6 +97,12 @@ export default function Cart() {
           </div>
         </div>
       </form>
+      
+      : 
+
+      <p className="text-center p-t-200 p-b-200">You have no items in your shopping cart. <Link to='/product'>Click</Link> here to continue shopping.</p>
+      }
+      
     </div>
   );
 }

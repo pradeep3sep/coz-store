@@ -18,7 +18,7 @@ export default function Product() {
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Yellow", "Grey"],
       productName: "Esprit Ruffle Shirt",
-      price: "16.64",
+      price: "16",
       id: 1,
     },
     {
@@ -33,7 +33,7 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "White", "Navy"],
       productName: "Herschel supply",
-      price: "35.31",
+      price: "35",
       id: 2,
     },
     {
@@ -48,7 +48,7 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XL"],
       color: ["Red", "Blue", "Black", "Grey"],
       productName: "Only Check Trouser",
-      price: "25.50",
+      price: "25",
       id: 3,
     },
     {
@@ -63,7 +63,7 @@ export default function Product() {
       size: ["XS", "S", "L", "XL", "XXL"],
       color: ["Red", "Green", "White", "Grey"],
       productName: "Classic Trench Coat",
-      price: "75.00",
+      price: "75",
       id: 4,
     },
     {
@@ -78,7 +78,7 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XXL"],
       color: ["Pink", "Blue", "White", "Grey"],
       productName: "Front Pocket Jumper",
-      price: "34.75",
+      price: "34",
       id: 5,
     },
     {
@@ -93,7 +93,7 @@ export default function Product() {
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "White", "Navy"],
       productName: "Vintage Inspired Classic",
-      price: "93.20",
+      price: "93",
       id: 6,
     },
     {
@@ -108,7 +108,7 @@ export default function Product() {
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Red", "Blue", "Yellow", "Grey"],
       productName: "Shirt in Stretch Cotton",
-      price: "52.66",
+      price: "52",
       id: 7,
     },
     {
@@ -123,7 +123,7 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Pink", "White", "Grey"],
       productName: "Pieces Metallic Printed",
-      price: "18.96",
+      price: "18",
       id: 8,
     },
     {
@@ -138,7 +138,7 @@ export default function Product() {
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Black", "Blue", "White", "Grey"],
       productName: "Converse All Star Hi Plimsolls",
-      price: "75.00",
+      price: "75",
       id: 9,
     },
     {
@@ -153,7 +153,7 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Green", "Grey"],
       productName: "Femme T-Shirt In Stripe",
-      price: "25.85",
+      price: "25",
       id: 10,
     },
     {
@@ -168,7 +168,7 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XXL"],
       color: ["Red", "Blue", "Navy", "Grey"],
       productName: "Herschel supply",
-      price: "63.16",
+      price: "63",
       id: 11,
     },
     {
@@ -183,7 +183,7 @@ export default function Product() {
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Pink", "Blue", "White", "Grey"],
       productName: "Herschel supply",
-      price: "63.15",
+      price: "63",
       id: 12,
     },
     {
@@ -198,7 +198,7 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XL"],
       color: ["Red", "Blue", "White", "Green"],
       productName: "T-Shirt with Sleeve",
-      price: "18.49",
+      price: "18",
       id: 13,
     },
     {
@@ -213,7 +213,7 @@ export default function Product() {
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Green", "Blue", "White", "Grey"],
       productName: "Pretty Little Thing",
-      price: "54.79",
+      price: "54",
       id: 14,
     },
     {
@@ -228,7 +228,7 @@ export default function Product() {
       size: ["XS", "S", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Maroon", "Grey"],
       productName: "Mini Silver Mesh Watch",
-      price: "86.85",
+      price: "86",
       id: 15,
     },
     {
@@ -243,7 +243,7 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Green", "Grey"],
       productName: "Square Neck Back",
-      price: "29.64",
+      price: "29",
       id: 16,
     },
   ];

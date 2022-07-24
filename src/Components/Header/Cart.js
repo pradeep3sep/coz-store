@@ -23,7 +23,7 @@ export default function Cart(props) {
           </div>
 
           
-          {cartproductdetails<0 ? <div className="header-cart-content flex-w js-pscroll">
+          {cartproductdetails.length ? <div className="header-cart-content flex-w js-pscroll">
             <ul className="header-cart-wrapitem w-full">
               {cartproductdetails.map((cartproductdetail,index)=> <CartProduct key={`-p${index}`} cartproductdetail={cartproductdetail}/>)}
             </ul>

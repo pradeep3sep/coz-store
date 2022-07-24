@@ -209,9 +209,9 @@ a:active {
   -ms-transition: all 300ms ease 0s;
 }
 
-input,
-select,
-textarea {
+.signin-content input,
+.signin-content select,
+.signin-content textarea {
   outline: none;
   appearance: unset !important;
   -moz-appearance: unset !important;
@@ -220,8 +220,8 @@ textarea {
   -ms-appearance: unset !important;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.signin-content input::-webkit-outer-spin-button,
+.signin-content input::-webkit-inner-spin-button {
   appearance: none !important;
   -moz-appearance: none !important;
   -webkit-appearance: none !important;
@@ -230,9 +230,9 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.signin-content input:focus,
+.signin-content select:focus,
+.signin-content textarea:focus {
   outline: none;
   box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -241,7 +241,7 @@ textarea:focus {
   -ms-box-shadow: none !important;
 }
 
-input[type="checkbox"] {
+.signin-content input[type="checkbox"] {
   appearance: checkbox !important;
   -moz-appearance: checkbox !important;
   -webkit-appearance: checkbox !important;
@@ -249,7 +249,7 @@ input[type="checkbox"] {
   -ms-appearance: checkbox !important;
 }
 
-input[type="radio"] {
+.signin-content input[type="radio"] {
   appearance: radio !important;
   -moz-appearance: radio !important;
   -webkit-appearance: radio !important;
@@ -442,7 +442,7 @@ figure {
   margin-bottom: 0px;
 }
 
-input {
+.signin-content input {
   width: 100%;
   display: block;
   border: none;
@@ -451,35 +451,35 @@ input {
   font-family: Poppins;
   box-sizing: border-box;
 }
-input::-webkit-input-placeholder {
+.signin-content input::-webkit-input-placeholder {
   color: #999;
 }
-input::-moz-placeholder {
+.signin-content input::-moz-placeholder {
   color: #999;
 }
-input:-ms-input-placeholder {
+.signin-content input:-ms-input-placeholder {
   color: #999;
 }
-input:-moz-placeholder {
+.signin-content input:-moz-placeholder {
   color: #999;
 }
-input:focus {
+.signin-content input:focus {
   border-bottom: 1px solid #222;
 }
-input:focus::-webkit-input-placeholder {
+.signin-content input:focus::-webkit-input-placeholder {
   color: #222;
 }
-input:focus::-moz-placeholder {
+.signin-content input:focus::-moz-placeholder {
   color: #222;
 }
-input:focus:-ms-input-placeholder {
+.signin-content input:focus:-ms-input-placeholder {
   color: #222;
 }
-input:focus:-moz-placeholder {
+.signin-content input:focus:-moz-placeholder {
   color: #222;
 }
 
-input[type="checkbox"]:not(old) {
+.signin-content input[type="checkbox"]:not(old) {
   width: 2em;
   margin: 0;
   padding: 0;
@@ -487,13 +487,13 @@ input[type="checkbox"]:not(old) {
   display: none;
 }
 
-input[type="checkbox"]:not(old) + label {
+.signin-content input[type="checkbox"]:not(old) + label {
   display: inline-block;
   line-height: 1.5em;
   margin-top: 6px;
 }
 
-input[type="checkbox"]:not(old) + label > span {
+.signin-content input[type="checkbox"]:not(old) + label > span {
   display: inline-block;
   width: 13px;
   height: 13px;
@@ -514,7 +514,7 @@ input[type="checkbox"]:not(old) + label > span {
   vertical-align: bottom;
 }
 
-input[type="checkbox"]:not(old):checked + label > span {
+.signin-content input[type="checkbox"]:not(old):checked + label > span {
   background-image: -moz-linear-gradient(white, white);
   background-image: -ms-linear-gradient(white, white);
   background-image: -o-linear-gradient(white, white);
@@ -522,7 +522,7 @@ input[type="checkbox"]:not(old):checked + label > span {
   background-image: linear-gradient(white, white);
 }
 
-input[type="checkbox"]:not(old):checked + label > span:before {
+.signin-content input[type="checkbox"]:not(old):checked + label > span:before {
   content: "\f26b";
   display: block;
   color: #222;
@@ -538,7 +538,7 @@ input[type="checkbox"]:not(old):checked + label > span:before {
   width: auto;
 }
 
-label {
+.signin-content label {
   position: absolute;
   left: 0;
   top: 50%;
@@ -550,11 +550,11 @@ label {
   color: #222;
 }
 
-.label-has-error {
+.signin-content .label-has-error {
   top: 22%;
 }
 
-label.error {
+.signin-content label.error {
   position: relative;
   /* background: url("../images/unchecked.gif") no-repeat; */
   background-position-y: 3px;
@@ -563,7 +563,7 @@ label.error {
   margin-top: 20px;
 }
 
-label.valid {
+.signin-content label.valid {
   display: block;
   position: absolute;
   right: 0;
@@ -573,7 +573,7 @@ label.valid {
   height: 20px;
   background: transparent;
 }
-label.valid:after {
+.signin-content label.valid:after {
   font-family: "Material-Design-Iconic-Font";
   content: "\f269";
   width: 100%;
@@ -584,7 +584,7 @@ label.valid:after {
   color: green;
 }
 
-.label-agree-term {
+.signin-content .label-agree-term {
   position: relative;
   top: 0%;
   transform: translateY(0);
@@ -781,4 +781,3 @@ label.valid:after {
   }
 }
 
-/*# sourceMappingURL=style.css.map */

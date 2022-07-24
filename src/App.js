@@ -11,6 +11,8 @@ import MainBlog from "./Components/Blog/MainBlog";
 import MainAbout from "./Components/About/MainAbout";
 import MainContact from "./Components/Contact/MainContact";
 import SignInWithGoogle from "./Components/SignIn/SignInWithGoogle";
+import SignUp from "./Components/LogInLogOut/SignUp";
+import SignIn from "./Components/LogInLogOut/SignIn";
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
         <Route exact path="/about" element={<MainAbout />} />
         <Route exact path="/contact" element={<MainContact />} />
         <Route exact path="/signin" element={<SignInWithGoogle />} />
+        <Route exact path="/test" element={<SignUp />} />
+        <Route exact path="/testing" element={<SignIn />} />
       </Routes>
       <Footer />
     </>

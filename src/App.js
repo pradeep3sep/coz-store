@@ -13,11 +13,13 @@ import MainContact from "./Components/Contact/MainContact";
 import SignInWithGoogle from "./Components/SignIn/SignInWithGoogle";
 import SignUp from "./Components/LogInLogOut/SignUp";
 import SignIn from "./Components/LogInLogOut/SignIn";
+// import InitialLoader from "./Components/Loader/InitialLoader";
 
 function App() {
 
   return (
     <>
+      {/* <InitialLoader/> */}
       <MainHeader />
       <Routes>
         <Route exact path="/" element={<Home />} />

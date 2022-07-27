@@ -14,17 +14,22 @@ export default function ShareIcon() {
       </div>
 
       <a
-        href="/"
+        href="https://www.facebook.com/sharer/sharer.php?u=example.org"
         className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
         data-tooltip="Facebook"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <i className="fa fa-facebook"></i>
       </a>
 
       <a
-        href="/"
         className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
         data-tooltip="Twitter"
+        href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
+        data-show-count="false"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <i className="fa fa-twitter"></i>
       </a>

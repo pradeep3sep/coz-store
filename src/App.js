@@ -13,6 +13,7 @@ import MainContact from "./Components/Contact/MainContact";
 import SignInWithGoogle from "./Components/SignIn/SignInWithGoogle";
 import SignUp from "./Components/LogInLogOut/SignUp";
 import SignIn from "./Components/LogInLogOut/SignIn";
+import RApp from "./Components/testRazorpay/RApp"
 // import InitialLoader from "./Components/Loader/InitialLoader";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/testing" element={<SignIn />} />
       </Routes>
       <Footer />
+      <RApp/>
     </>
   );
 }

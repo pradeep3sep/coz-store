@@ -86,3 +86,9 @@ ul {
 .menu-mobile.shomenu {
   display: block;
 }
+.icon-header-item a {
+  color: black;
+}
+.icon-header-item a:hover {
+  color: #717fe0;
+}

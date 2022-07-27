@@ -24,12 +24,14 @@
 import React from 'react'
 //getAuth is to have access of "authentication" in firebse,
 //createUserWithEmailAndPassword it is the method name which we use to authentication of firebase
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+//updateProfile helps to update the profile details like profilename and profileImageURL etc because bydefault we create using email and password
+import { getAuth, createUserWithEmailAndPassword,updateProfile } from 'firebase/auth';
 
 // getFirestore is for accessing the firestore database, doc is to have access of all the content of database,
 //getDoc is for the getting the all the value stored in the firebase
 //setDoc is to update or save value in database
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+
 
 
 // *!first have a look to the handleSubmit function
@@ -51,9 +53,12 @@ export default function SignUp() {
         const userSnapshot = await getDoc(userDocRef);
         //here we check that data is already created or not against the authentic email and password, if not then create the new one
         if (!userSnapshot.exists()) {
+          const { displayName, email } = userAuth;
           const createdAt = new Date();
           try {
             await setDoc(userDocRef, {
+              displayName,
+              email,
               createdAt,
               ...additionalInformation,
             });
@@ -70,9 +75,14 @@ export default function SignUp() {
         try {
           // In createUserWithEmailAndPassword, we pass the "const auth = getAuth();" and email and password
           //it checks and creates the "authentication" in firebase with mail and password 
-          const { user } = await createUserWithEmailAndPassword(auth, "testpr@gmail.com", "1234567890");
+          const { user } = await createUserWithEmailAndPassword(auth, "te1sssetpr@gmssafil.com", "1234567890")
+
+          //below is for the update of profilename of person
+          await updateProfile(auth.currentUser, { displayName: "ram" }).catch(
+            (err) => console.log(err)
+          );          
         //   console.log(user,"it gives all the details like email,uid etc");
-          createUserDocumentFromAuth(user, { "Name" : "pradeepKumarVerma basically all detail in object form", "Middle" : "Kumar" , "Last" : "verma"});
+          createUserDocumentFromAuth(user, { "Name" : "pradeepKumarVerma basically all detail in object form", "Middle" : "Kumar" , "Last" : "verma", "displayName" : "verma"});
         // Here we pass all the details which we want save the firestore database
         // basically here we play with all data which we want to store in database
         //user is basically we pass details like email, uid and other things to verify the rest thing which we want to store
@@ -87,6 +97,6 @@ export default function SignUp() {
 
 
   return (
-    <button onClick={handleSubmit}>-----------SignUp---------------</button>
+    <button className='p-t-200' onClick={handleSubmit}>-----------SignUp-sss--------------</button>
   )
 }

@@ -31,7 +31,8 @@ function App() {
         <Route exact path="/contact" element={<MainContact />} />
         <Route exact path="/signin" element={<SignInWithGoogle />} />
         <Route exact path="/test" element={<SignUp />} />
-        <Route exact path="/testing" element={<SignIn />} />
+        <Route exact path="/login" element={<SignIn />} />
+        <Route exact path="/signup" element={<SignUp />} />
       </Routes>
       <Footer />
       <RApp/>

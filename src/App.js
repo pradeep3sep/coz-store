@@ -14,6 +14,7 @@ import SignInWithGoogle from "./Components/SignIn/SignInWithGoogle";
 import SignUp from "./Components/LogInLogOut/SignUp";
 import SignIn from "./Components/LogInLogOut/SignIn";
 import RApp from "./Components/testRazorpay/RApp"
+import Wishlist from "./Components/Wishlist/Wishlist";
 // import InitialLoader from "./Components/Loader/InitialLoader";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="/test" element={<SignUp />} />
         <Route exact path="/login" element={<SignIn />} />
         <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/wislist" element={<Wishlist/>} />
       </Routes>
       <Footer />
       <RApp/>

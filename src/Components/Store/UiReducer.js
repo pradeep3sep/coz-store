@@ -2,6 +2,7 @@ import {createSlice} from '@reduxjs/toolkit';
 
 const initialProductstate = {
     isMobile : '',
+    logName : '',
 }
 
 const UiReducer = createSlice({
@@ -11,6 +12,9 @@ const UiReducer = createSlice({
         checkWidth(state,action){
             state.isMobile = action.payload
         },
+        setname(state,action){
+            state.logName = action.payload
+        }
     }
 });
 

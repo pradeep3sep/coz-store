@@ -16,7 +16,7 @@ const firebaseConfig = {
     storageBucket: "coz-store.appspot.com",
     messagingSenderId: "416319577037",
     appId: "1:416319577037:web:dd1b235cfdd6b8fb1e8284"
-  };
+};
 
 const firebaseApp = initializeApp(firebaseConfig);
 

@@ -40,7 +40,7 @@ export default function ShareIcon() {
         className="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100"
         data-tooltip="Whatsapp"
       >
-        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+        <i className="fa fa-whatsapp" aria-hidden="true"></i>
       </a>
     </div>
   );

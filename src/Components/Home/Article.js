@@ -1,13 +1,21 @@
 import React from "react";
+import swal from "sweetalert";
+import { useDispatch} from "react-redux";
+import { WishlistActions } from '../Store/WishlistReducer';
 
 export default function Article(props) {
     let passing = props.aricelDa;
+
+    const dispatch = useDispatch();
 
     function clickeArticle(){
       props.clickedProduct(passing.id)
       props.showModal();
     }
-
+    function whishlist(){
+      dispatch(WishlistActions.activeproduct(passing));
+      swal("Congratulations!", "Your product has been added to the cart!", "success");
+    }
 
   return (
     <div className={`col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${passing.gender}`}>
@@ -38,9 +46,8 @@ export default function Article(props) {
             <span className="stext-105 cl3">${passing.price}</span>
           </div>
 
-          <div className="block2-txt-child2 flex-r p-t-3">
+          <div onClick={whishlist} className="block2-txt-child2 flex-r p-t-3">
             <a
-              href="/"
               className="btn-addwish-b2 dis-block pos-relative js-addwish-b2"
             >
               <img

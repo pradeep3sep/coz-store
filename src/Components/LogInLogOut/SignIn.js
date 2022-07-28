@@ -1,17 +1,24 @@
 import styles from './signUp.module.css'
 import swal from 'sweetalert';
+import { useDispatch} from "react-redux";
+import { UiActions } from '../Store/UiReducer';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import useSignInWithGoogle from './useSignInWithGoogle';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function SignIn() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [first, setfirst] = useState('')
     const auth = getAuth();
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
-
-
+    const SignInWithGoogle = useSignInWithGoogle(first)
+    function googleLogin(e){
+        setfirst(e.target.id);
+    }
     function handleEmail(e){
         setEmail(e.target.value)
     }
@@ -25,7 +32,8 @@ export default function SignIn() {
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log("user",user);
+            console.log("userpr",user);
+            dispatch(UiActions.setname(user.displayName));
             swal(`Welcome Back!`, `${user.displayName}`, "success");
             if (user.email) {
                 navigate("/");
@@ -33,7 +41,6 @@ export default function SignIn() {
             // ...
         })
         .catch((error) => {
-            const errorCode = error.code;
             const errorMessage = error.message;
             if (errorMessage === 'Firebase: Error (auth/user-not-found).') {
                 // swal(`Hi User!`, `You are not registered with us`, "warning");
@@ -45,6 +52,9 @@ export default function SignIn() {
                   }).then(()=>{
                     navigate("/SignUp");
                 })
+            }
+            if (errorMessage === 'Firebase: Error (auth/network-request-failed).') {
+                swal(`OOPS!`, `Please connect with Internet`, "warning");
             }
             console.log(errorMessage);
         });
@@ -78,9 +88,14 @@ export default function SignIn() {
                         <div className={styles[`social-login`]}>
                             <span className={styles[`social-label`]}>Or login with</span>
                             <ul className={styles.socials}>
-                                <li><a href="/"><i className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-facebook`]}`}></i></a></li>
-                                <li><a href="/"><i className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-twitter`]}`}></i></a></li>
-                                <li><a href="/"><i className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-google`]}`}></i></a></li>
+                                <li onClick={googleLogin}><a href="#"><i id='facebook' className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-facebook`]}`}></i></a></li>
+                                <li onClick={googleLogin}><a href="#"><i id='twitter' className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-twitter`]}`}></i></a></li>
+                                <li onClick={googleLogin}>
+                                    {/* <Link></Link> */}
+                                    <a href="#">
+                                        <i id='google' className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-google`]}`}></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>

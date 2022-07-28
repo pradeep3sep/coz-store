@@ -10,9 +10,10 @@ const WishlistReducer = createSlice({
     initialState : initialProductstate,
     reducers : {
         activeproduct(state,action){
-            const newItem = action.payload;
+            const status = action.payload.type
+            const newItem = action.payload.product;
             const existingItem = state.items.find((item) => item.id === newItem.id);
-            if (!existingItem) {
+            if (!existingItem && status === "add") {
                 state.items.push(newItem);
                 state.TotalArticle++; 
             } else {

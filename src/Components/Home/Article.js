@@ -2,20 +2,30 @@ import React from "react";
 import swal from "sweetalert";
 import { useDispatch} from "react-redux";
 import { WishlistActions } from '../Store/WishlistReducer';
+import { useState } from "react";
 
 export default function Article(props) {
     let passing = props.aricelDa;
 
     const dispatch = useDispatch();
+    const [iconCheck, setfirst] = useState(false)
 
     function clickeArticle(){
       props.clickedProduct(passing.id)
       props.showModal();
     }
-    function whishlist(){
-      dispatch(WishlistActions.activeproduct(passing));
+    function addwhishlist(){
+      dispatch(WishlistActions.activeproduct({product : passing, type: "add"}));
       swal("Congratulations!", "Your product has been added to the cart!", "success");
+      setfirst(true)
     }
+    function removewhishlist(){
+      dispatch(WishlistActions.activeproduct({product : passing, type: "remove"}));
+      swal("Your product has been remove from the cart!");
+      setfirst(false)
+    }
+
+    const pathcheck = ()=> window.location.pathname === '/wislist'
 
   return (
     <div className={`col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item ${passing.gender}`}>
@@ -46,21 +56,27 @@ export default function Article(props) {
             <span className="stext-105 cl3">${passing.price}</span>
           </div>
 
-          <div onClick={whishlist} className="block2-txt-child2 flex-r p-t-3">
-            <a
-              className="btn-addwish-b2 dis-block pos-relative js-addwish-b2"
-            >
-              <img
-                className="icon-heart1 dis-block trans-04"
-                src={require("../../images/icons/icon-heart-01.png")}
-                alt="ICON"
-              />
-              <img
-                className="icon-heart2 dis-block trans-04 ab-t-l"
-                src={require("../../images/icons/icon-heart-02.png")}
-                alt="ICON"
-              />
-            </a>
+          <div  className="block2-txt-child2 flex-r p-t-3">
+
+            {
+               iconCheck || pathcheck() ?
+                <i onClick={removewhishlist} className="zmdi zmdi-close"></i>
+              :
+              <a onClick={addwhishlist}
+                  className="btn-addwish-b2 dis-block pos-relative js-addwish-b2"
+                >
+                  <img
+                    className="icon-heart1 dis-block trans-04"
+                    src={require("../../images/icons/icon-heart-01.png")}
+                    alt="ICON"
+                  />
+                  <img
+                    className="icon-heart2 dis-block trans-04 ab-t-l"
+                    src={require("../../images/icons/icon-heart-02.png")}
+                    alt="ICON"
+                  />
+                </a>
+            }
           </div>
         </div>
       </div>

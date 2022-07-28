@@ -1,24 +1,31 @@
 import styles from './signUp.module.css'
 import swal from 'sweetalert';
+import googleLogo from '../../images/googleicon.svg'
 import { useDispatch} from "react-redux";
 import { UiActions } from '../Store/UiReducer';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import useSignInWithGoogle from './useSignInWithGoogle';
+import { signInWithGooglePopup, createUserDocumentFromAuth } from '../Firebase/SignInWithGoogle_Firebase.js';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function SignIn() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const [first, setfirst] = useState('')
+
     const auth = getAuth();
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
-    const SignInWithGoogle = useSignInWithGoogle(first)
-    function googleLogin(e){
-        setfirst(e.target.id);
-    }
+
+    const logGoogleUser = async () => {
+        const { user } = await signInWithGooglePopup();
+        createUserDocumentFromAuth(user)
+        dispatch(UiActions.setname(user.displayName));
+            swal(`Welcome!`, `${user.displayName}`, "success");
+            if (user.email) {
+                navigate("/");
+            }
+    };
     function handleEmail(e){
         setEmail(e.target.value)
     }
@@ -85,18 +92,24 @@ export default function SignIn() {
                                 <input onClick={onsubmitHandler} type="submit" name="signup" id="signup" className={styles[`form-submit`]} value="Log In"/>
                             </div>
                         </form>
-                        <div className={styles[`social-login`]}>
-                            <span className={styles[`social-label`]}>Or login with</span>
-                            <ul className={styles.socials}>
+                        <div className={` d-flex justify-content-center ${styles[`social-login`]}`}>
+                        <div onClick={logGoogleUser} class="google-btn">
+                            <div class="google-icon-wrapper">
+                                <img class="google-icon" src={googleLogo} alt='google login'/>
+                            </div>
+                            <p class="btn-text"><b>Sign in with google</b></p>
+                            </div>
+                            {/* <span className={styles[`social-label`]}>Or login with</span> */}
+                            {/* <ul className={styles.socials}>
                                 <li onClick={googleLogin}><a href="#"><i id='facebook' className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-facebook`]}`}></i></a></li>
                                 <li onClick={googleLogin}><a href="#"><i id='twitter' className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-twitter`]}`}></i></a></li>
                                 <li onClick={googleLogin}>
-                                    {/* <Link></Link> */}
+                                    
                                     <a href="#">
                                         <i id='google' className={`${styles[`display-flex-center`]} zmdi ${styles[`zmdi-google`]}`}></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                     <div className={styles[`signup-image`]}>

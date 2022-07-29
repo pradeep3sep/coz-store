@@ -6,6 +6,7 @@ import { useState } from "react";
 
 export default function Article(props) {
     let passing = props.aricelDa;
+    console.log(passing.image,"bccccc");
 
     const dispatch = useDispatch();
     const [iconCheck, setfirst] = useState(false)

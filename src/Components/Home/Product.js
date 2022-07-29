@@ -3,17 +3,19 @@ import Modal from "../Modal/Modal";
 import Article from "./Article";
 import FilterHome from "./FilterHome";
 import Search from "./Search";
+// import axios from 'axios';
+// import { useEffect } from "react";
 
 export default function Product() {
   let aricelData = [
     {
       gender: "women",
       image: [
-        require("../../images/product-01.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Yellow", "Grey"],
@@ -24,11 +26,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-02.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "White", "Navy"],
@@ -39,11 +41,11 @@ export default function Product() {
     {
       gender: "men",
       image: [
-        require("../../images/product-03.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "L", "XL"],
       color: ["Red", "Blue", "Black", "Grey"],
@@ -54,11 +56,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-04.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "S", "L", "XL", "XXL"],
       color: ["Red", "Green", "White", "Grey"],
@@ -69,11 +71,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-05.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABdJSYZYXUogyKV0--khwRWa/product-05.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "L", "XXL"],
       color: ["Pink", "Blue", "White", "Grey"],
@@ -84,11 +86,11 @@ export default function Product() {
     {
       gender: "watches",
       image: [
-        require("../../images/product-06.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADpKDXxnG6rXQGwGu_3fazaa/product-06.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "White", "Navy"],
@@ -99,11 +101,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-07.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABfHpmNBUA4UPQicFLJWblGa/product-07.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Red", "Blue", "Yellow", "Grey"],
@@ -114,11 +116,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-08.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzTOcXBUWuIfWVl656NL0Na/product-08.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Pink", "White", "Grey"],
@@ -129,11 +131,11 @@ export default function Product() {
     {
       gender: "shoes",
       image: [
-        require("../../images/product-09.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADgM9uhcyvTg3h_8fl3a3B6a/product-09.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Black", "Blue", "White", "Grey"],
@@ -144,11 +146,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-10.jpg"),
-        require("../../images/product-11.jpg"),
-        require("../../images/product-12.jpg"),
-        require("../../images/product-13.jpg"),
-        require("../../images/product-14.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAn2TTTx48ZlgHAsITpMlx4a/product-10.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
       ],
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Green", "Grey"],
@@ -159,11 +161,11 @@ export default function Product() {
     {
       gender: "men",
       image: [
-        require("../../images/product-11.jpg"),
-        require("../../images/product-01.jpg"),
-        require("../../images/product-02.jpg"),
-        require("../../images/product-03.jpg"),
-        require("../../images/product-04.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABmsPQBs7GlRki4KEC7zavka/product-11.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "L", "XXL"],
       color: ["Red", "Blue", "Navy", "Grey"],
@@ -174,11 +176,11 @@ export default function Product() {
     {
       gender: "men",
       image: [
-        require("../../images/product-12.jpg"),
-        require("../../images/product-01.jpg"),
-        require("../../images/product-02.jpg"),
-        require("../../images/product-03.jpg"),
-        require("../../images/product-04.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQGDZrUJ6VTS13ODEHdxSta/product-12.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
       ],
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Pink", "Blue", "White", "Grey"],
@@ -189,11 +191,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-13.jpg"),
-        require("../../images/product-01.jpg"),
-        require("../../images/product-02.jpg"),
-        require("../../images/product-03.jpg"),
-        require("../../images/product-04.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AADTVls7NTnt7qodi0GDLh31a/product-13.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "L", "XL"],
       color: ["Red", "Blue", "White", "Green"],
@@ -204,11 +206,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-14.jpg"),
-        require("../../images/product-01.jpg"),
-        require("../../images/product-02.jpg"),
-        require("../../images/product-03.jpg"),
-        require("../../images/product-04.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AACzyfZRxlbfLf1un4fJDeeZa/product-14.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
       ],
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Green", "Blue", "White", "Grey"],
@@ -219,11 +221,11 @@ export default function Product() {
     {
       gender: "watches",
       image: [
-        require("../../images/product-15.jpg"),
-        require("../../images/product-01.jpg"),
-        require("../../images/product-02.jpg"),
-        require("../../images/product-03.jpg"),
-        require("../../images/product-04.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AABEPRGY-wyqutowWdZU-TV-a/product-15.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
       ],
       size: ["XS", "S", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Maroon", "Grey"],
@@ -234,11 +236,11 @@ export default function Product() {
     {
       gender: "women",
       image: [
-        require("../../images/product-16.jpg"),
-        require("../../images/product-01.jpg"),
-        require("../../images/product-02.jpg"),
-        require("../../images/product-03.jpg"),
-        require("../../images/product-04.jpg"),
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAKRusfn-sPcEN9mropAbIoa/product-16.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAQFNRkWQypKr8ugTSGTCCAa/product-01.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAAdD3PTu62r2SOaEqEUqgoYa/product-02.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAB6T_4R5p6NwIKaEfYQQmQqa/product-03.jpg?raw=1",
+        "https://www.dropbox.com/sh/4i6rdj8rtykbk1f/AAA6F38VIMyflpTGizuJjRfva/product-04.jpg?raw=1",
       ],
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Green", "Grey"],
@@ -247,6 +249,13 @@ export default function Product() {
       id: 16,
     },
   ];
+  // useEffect(() => {
+  //   console.log(process.env.REACT_APP_FIREBASE_BASEURL,"url");
+  //   axios
+  //   .put(`${process.env.REACT_APP_FIREBASE_BASEURL}productList.json`, {...aricelData})
+  //   .then(response => console.log(response,"response"))
+  // })
+  
   const [activeCat, setactiveCat] = useState("All Products");
   const [filterProducts, setfilterProducts] = useState(aricelData);
   const [modalVisibility, setmodalVisibility] = useState(false);

@@ -93,11 +93,11 @@ export default function SignIn() {
                             </div>
                         </form>
                         <div className={` d-flex justify-content-center ${styles[`social-login`]}`}>
-                        <div onClick={logGoogleUser} class="google-btn">
-                            <div class="google-icon-wrapper">
-                                <img class="google-icon" src={googleLogo} alt='google login'/>
+                        <div onClick={logGoogleUser} className="google-btn">
+                            <div className="google-icon-wrapper">
+                                <img className="google-icon" src={googleLogo} alt='google login'/>
                             </div>
-                            <p class="btn-text"><b>Sign in with google</b></p>
+                            <p className="btn-text"><b>Sign in with google</b></p>
                             </div>
                             {/* <span className={styles[`social-label`]}>Or login with</span> */}
                             {/* <ul className={styles.socials}>

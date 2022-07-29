@@ -7,18 +7,18 @@ export default function HeaderMenu() {
     const menu = [
         {
             name: 'Home',
-            path: '/',
+            path: '',
             subheader: [
                 {
-                    name: 'Homepage 1',
+                    name: 'Sub-menu 1',
                     path: 'hm_1'
                 },
                 {
-                    name: 'Homepage 2',
+                    name: 'Sub-menu 2',
                     path: 'hm_2'
                 },
                 {
-                    name: 'Homepage 3',
+                    name: 'Sub-menu 3',
                     path: 'hm_3'
                 },
             ]
@@ -28,7 +28,7 @@ export default function HeaderMenu() {
             path: 'product'
         },
         {
-            name: 'Features',
+            name: 'Cart',
             path: 'cart'
         },
         {
@@ -47,7 +47,7 @@ export default function HeaderMenu() {
   return (
     <div className="menu-desktop">
       <ul className="main-menu">
-        {menu.map(value => <li key={value.name} className={value.name === 'Features' ? "label1" : ''} data-label1={value.name === 'Features' ? "hot" : ''}>
+        {menu.map(value => <li key={value.name} className={value.name === 'Cart' ? "label1" : ''} data-label1={value.name === 'Cart' ? "hot" : ''}>
                                 <NavLink to={`/${value.path}`}>{value.name}</NavLink>
                                 {value.subheader ? <SubHeader subcat={value.subheader} />  : ''}
                             </li>

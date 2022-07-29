@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Marquee() {
   return (
@@ -9,13 +10,14 @@ export default function Marquee() {
         </div>
 
         <div className="right-top-bar flex-w h-full">
-          <a href="/" className="flex-c-m trans-04 p-lr-25">
+          <Link to='/about' className="flex-c-m trans-04 p-lr-25">
             Help & FAQs
-          </a>
+          </Link>
+          
 
-          <a href="/" className="flex-c-m trans-04 p-lr-25">
+          {/* <a href="/" className="flex-c-m trans-04 p-lr-25">
             My Account
-          </a>
+          </a> */}
 
           <a href="/" className="flex-c-m trans-04 p-lr-25">
             EN

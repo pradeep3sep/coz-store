@@ -16,12 +16,12 @@ export default function Article(props) {
     }
     function addwhishlist(){
       dispatch(WishlistActions.activeproduct({product : passing, type: "add"}));
-      swal("Congratulations!", "Your product has been added to the cart!", "success");
+      swal("Congratulations!", "Your product has been added to the Wishlist!", "success");
       setfirst(true)
     }
     function removewhishlist(){
       dispatch(WishlistActions.activeproduct({product : passing, type: "remove"}));
-      swal("Your product has been remove from the cart!");
+      swal("Your product has been remove from the Wishlist!");
       setfirst(false)
     }
 

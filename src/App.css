@@ -174,3 +174,43 @@ ul {
   text-align: inherit;
   border-top: none !important;
 }
+.maincheckout {
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .mobproduct {
+    padding-top: 10px !important;
+  }
+  .js-modal1 .expand_arrow {
+    left: 77.5%;
+    top: 7.3%;
+  }
+  .zoom-modal .slick-prev:before, .zoom-modal .slick-next:before {
+    display: none;
+  }
+  .wrap-header-mobile {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    z-index: 2;
+  }
+  .menu-mobile.shomenu  {
+    position: fixed;
+    top: 72px;
+    z-index: 2;
+    background: transparent;
+  }
+  .main-menu-m .arrow-main-menu-m {
+    display: none;
+  }
+  .section-slide {
+    padding-top: 71px;
+  }
+  .praddeep_swiper .swiper-button-next:after, .praddeep_swiper .swiper-button-prev:after {
+    display: none;
+  }
+  .label1.rs1::after {
+    display: none;
+  }
+}

@@ -1,6 +1,8 @@
 import styles from './signUp.module.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { useDispatch} from "react-redux";
+import { UiActions } from '../Store/UiReducer';
 import { Link } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword,updateProfile } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
@@ -15,6 +17,8 @@ const defaultFormFields = {
 
 export default function SignIn() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const auth = getAuth();
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
@@ -56,6 +60,9 @@ export default function SignIn() {
           alert("passwords do not match");
           return;
         }
+        if (confirmPassword.length < 7) {
+          alert("Password should be at least 6 characters (auth/weak-password).");
+        }
         if (!email || !password) return;
     
         try {
@@ -64,6 +71,7 @@ export default function SignIn() {
             (err) => console.log(err)
           );
           createUserDocumentFromAuth(user, {...formFields});
+          dispatch(UiActions.setname({displayName: user.displayName, email : user.email }));
           resetFormFields();
             navigate("/");
         } catch (error) {

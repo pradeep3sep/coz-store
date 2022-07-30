@@ -16,7 +16,7 @@ export default function FeaturedProducts() {
               White Shirt With Pleat Detail Back
             </a>
 
-            <span className="stext-116 cl6 p-t-20">$19.00</span>
+            <span className="stext-116 cl6 p-t-20">₹19.00</span>
           </div>
         </li>
 
@@ -30,7 +30,7 @@ export default function FeaturedProducts() {
               Converse All Star Hi Black Canvas
             </a>
 
-            <span className="stext-116 cl6 p-t-20">$39.00</span>
+            <span className="stext-116 cl6 p-t-20">₹39.00</span>
           </div>
         </li>
 
@@ -44,7 +44,7 @@ export default function FeaturedProducts() {
               Nixon Porter Leather Watch In Tan
             </a>
 
-            <span className="stext-116 cl6 p-t-20">$17.00</span>
+            <span className="stext-116 cl6 p-t-20">₹17.00</span>
           </div>
         </li>
       </ul>

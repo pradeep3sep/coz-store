@@ -13,7 +13,7 @@ import MainContact from "./Components/Contact/MainContact";
 import SignInWithGoogle from "./Components/SignIn/SignInWithGoogle";
 import SignUp from "./Components/LogInLogOut/SignUp";
 import SignIn from "./Components/LogInLogOut/SignIn";
-import RApp from "./Components/testRazorpay/RApp"
+// import RApp from "./Components/testRazorpay/RApp"
 import Wishlist from "./Components/Wishlist/Wishlist";
 import MyProfile from "./Components/MyProfile/MyProfile";
 // import InitialLoader from "./Components/Loader/InitialLoader";
@@ -39,7 +39,7 @@ function App() {
         <Route exact path="/myprofile" element={<MyProfile/>} />
       </Routes>
       <Footer />
-      <RApp/>
+      {/* <RApp/> */}
     </>
   );
 }

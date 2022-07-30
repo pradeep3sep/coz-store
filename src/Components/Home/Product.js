@@ -305,7 +305,7 @@ export default function Product() {
 
   return (
     <>
-      <div className="bg0 p-t-117 p-b-140">
+      <div className="bg0 p-t-117 p-b-140 mobproduct">
         <div className="container">
           <div className="p-b-10">
             <h3 className="ltext-103 cl5">Product Overview</h3>
@@ -329,7 +329,7 @@ export default function Product() {
             </div>
 
             <div className="flex-w flex-c-m m-tb-10">
-              <div
+              {/* <div
                 className={`flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter ${
                   shwFlter ? "show-filter" : ""
                 }`}
@@ -338,7 +338,7 @@ export default function Product() {
                 <i className="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
                 <i className="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
                 Filter
-              </div>
+              </div> */}
 
               <div
                 className={`flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search ${

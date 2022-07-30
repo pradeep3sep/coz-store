@@ -20,7 +20,7 @@ export default function SignIn() {
     const logGoogleUser = async () => {
         const { user } = await signInWithGooglePopup();
         createUserDocumentFromAuth(user)
-        dispatch(UiActions.setname(user.displayName));
+        dispatch(UiActions.setname({displayName: user.displayName, email : user.email }));
             swal(`Welcome!`, `${user.displayName}`, "success");
             if (user.email) {
                 navigate("/");
@@ -40,7 +40,7 @@ export default function SignIn() {
             // Signed in 
             const user = userCredential.user;
             console.log("userpr",user);
-            dispatch(UiActions.setname(user.displayName));
+            dispatch(UiActions.setname({displayName: user.displayName, email : user.email }));
             swal(`Welcome Back!`, `${user.displayName}`, "success");
             if (user.email) {
                 navigate("/");

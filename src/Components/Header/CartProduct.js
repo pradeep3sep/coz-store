@@ -33,7 +33,7 @@ export default function CartProduct(props) {
         </a>
         <span className="header-cart-item-info">{Size}</span>
         <span className="header-cart-item-info">{Color}</span>
-        <span className="header-cart-item-info">{Quantity} x ${Price}</span>
+        <span className="header-cart-item-info">{Quantity} x ₹{Price}</span>
       </div>
     </li>
   );

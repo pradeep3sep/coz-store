@@ -6,7 +6,7 @@ export default function Marquee_m() {
     <ul className="topbar-mobile">
       <li>
         <div className="left-top-bar">
-          Free shipping for standard order over $100
+          Free shipping for standard order over ₹100
         </div>
       </li>
 

@@ -6,8 +6,6 @@ import { useState } from "react";
 
 export default function Article(props) {
     let passing = props.aricelDa;
-    console.log(passing.image,"bccccc");
-
     const dispatch = useDispatch();
     const [iconCheck, setfirst] = useState(false)
 
@@ -48,13 +46,12 @@ export default function Article(props) {
         <div className="block2-txt flex-w flex-t p-t-14">
           <div className="block2-txt-child1 flex-col-l ">
             <a
-              href="product-detail.html"
               className="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6"
             >
               {passing.productName}
             </a>
 
-            <span className="stext-105 cl3">${passing.price}</span>
+            <span className="stext-105 cl3">₹{passing.price}</span>
           </div>
 
           <div  className="block2-txt-child2 flex-r p-t-3">

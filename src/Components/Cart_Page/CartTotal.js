@@ -1,5 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
+import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
 
 export default function CartTotal() {
   const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
@@ -15,7 +16,7 @@ export default function CartTotal() {
           </div>
 
           <div className="size-209">
-            <span className="mtext-110 cl2">${cartTotalPrice}</span>
+            <span className="mtext-110 cl2">₹{cartTotalPrice}</span>
           </div>
         </div>
 
@@ -26,11 +27,10 @@ export default function CartTotal() {
 
           <div className="size-209 p-r-18 p-r-0-sm w-full-ssm">
             <p className="stext-111 cl6 p-t-2">
-              There are no shipping methods available. Please double check your
-              address, or contact us if you need any help.
+              There are no shipping Charges available. 
             </p>
 
-            <div className="p-t-15">
+            {/* <div className="p-t-15">
               <span className="stext-112 cl8">Calculate Shipping</span>
 
               <div className="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
@@ -65,7 +65,7 @@ export default function CartTotal() {
                   Update Totals
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -75,13 +75,13 @@ export default function CartTotal() {
           </div>
 
           <div className="size-209 p-t-1">
-            <span className="mtext-110 cl2">${cartTotalPrice}</span>
+            <span className="mtext-110 cl2">₹{cartTotalPrice}</span>
           </div>
         </div>
 
-        <button className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+        <div onClick={displayRazorpay} className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
           Proceed to Checkout
-        </button>
+        </div>
       </div>
     </div>
   );

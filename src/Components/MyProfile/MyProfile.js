@@ -1,8 +1,33 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import acclogo from '../../images/accountsLog.svg'
+import { getAuth, signOut} from "firebase/auth";
+import swal from "sweetalert";
+import {useSelector} from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch} from "react-redux";
+import { UiActions } from '../Store/UiReducer';
 
 export default function MyProfile() {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const displayName = useSelector(state => state.UiThing.logName) 
+  const email = useSelector(state => state.UiThing.logEmail) 
+
+  const auth = getAuth();
+    const signOutHandler = async () => {
+        await signOut(auth).then((response) => {
+            // Sign-out successful.
+            console.log(response,"log out");
+            dispatch(UiActions.setname({displayName: '', email : "" }));
+            swal("Congratulations!", "You have Sign out successfully!", "success");
+
+            navigate("/");
+          }).catch((error) => {
+            // An error happened.
+            console.log(error);
+          });
+    };
   return (
     <>
       <div className="container p-t-100 myprofile">
@@ -16,7 +41,7 @@ export default function MyProfile() {
                 <NavLink to="/myorders">My Orders</NavLink>
               </li>
               <li>
-               <button className="w-100 signout">
+               <button onClick={signOutHandler} className="w-100 signout">
                     SignOut
                </button>
               </li>
@@ -24,24 +49,27 @@ export default function MyProfile() {
           </div>
           <div className="col-md-9">
             <div className="row">
-                <div className="col-2">
-                    <img src="https://www.dropbox.com/s/gi96663v0cm1c3b/product-01.jpg?raw=1" alt="loginImage" />
+                <div className="col-1 login">
+                  <div className="logName">
+                      <h5>{displayName.split('').splice(0,1)}</h5>
+                  </div>
+                  {/* <img src="https://www.dropbox.com/s/gi96663v0cm1c3b/product-01.jpg?raw=1" alt="loginImage" /> */}
                 </div>
-                <div className="col-10">
+                <div className="col-11">
                     <h4 className="main-heading">Contact Information</h4>
                     <div className="content-box cus-info-box">
-                    <p>Pradeep Verma</p>
-                    <p>pradeepverma@gmail.com</p>
-                    <p>7503383036</p>
+                    <p>{displayName}</p>
+                    <p>{email}</p>
+                    {/* <p>7503383036</p> */}
                 </div>
                 </div>
             </div>
             <div>
                 <h4 className="main-heading">Default Shipping Address</h4>
                 <div className="content-box cus-info-box">
-                <p>RC 197 Sangam Park</p>
-                <p>Khoda colony, Ghaziabad, Uttar Pradesh</p>
-                <p>201001</p>
+                <p>Static Main Address</p>
+                <p>Static Main area</p>
+                <p>Static Pincode</p>
                 </div>
             </div>
           </div>

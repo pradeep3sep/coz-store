@@ -3,6 +3,7 @@ import {createSlice} from '@reduxjs/toolkit';
 const initialProductstate = {
     isMobile : '',
     logName : '',
+    logEmail: "",
 }
 
 const UiReducer = createSlice({
@@ -13,7 +14,8 @@ const UiReducer = createSlice({
             state.isMobile = action.payload
         },
         setname(state,action){
-            state.logName = action.payload
+            state.logName = action.payload.displayName
+            state.logEmail = action.payload.email
         }
     }
 });

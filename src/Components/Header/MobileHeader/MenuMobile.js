@@ -1,10 +1,13 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function MenuMobile() {
   return (
     <ul className="main-menu-m">
       <li>
-        <a href="index.html">Home</a>
+        {/* <a href="index.html">Home</a> */}
+        <NavLink to='/'>Home</NavLink>
         <ul className="sub-menu-m">
           <li>
             <a href="index.html">Homepage 1</a>
@@ -22,25 +25,23 @@ export default function MenuMobile() {
       </li>
 
       <li>
-        <a href="product.html">Shop</a>
+        <NavLink to='/product'>Shop</NavLink>
       </li>
 
       <li>
-        <a href="shoping-cart.html" className="label1 rs1" data-label1="hot">
-          Features
-        </a>
+          <NavLink className="label1 rs1" to='/cart'>Cart</NavLink>
       </li>
 
       <li>
-        <a href="blog.html">Blog</a>
+      <NavLink to='/blog'>Blog</NavLink>
       </li>
 
       <li>
-        <a href="about.html">About</a>
+      <NavLink to='/about'>About</NavLink>
       </li>
 
       <li>
-        <a href="contact.html">Contact</a>
+      <NavLink to='/contact'>Contact</NavLink>
       </li>
     </ul>
   );

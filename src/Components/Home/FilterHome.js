@@ -64,31 +64,31 @@ export default function FilterHome(props) {
 
             <li className="p-b-6">
               <a href="/" className="filter-link stext-106 trans-04">
-                $0.00 - $50.00
+                ₹0.00 - ₹50.00
               </a>
             </li>
 
             <li className="p-b-6">
               <a href="/" className="filter-link stext-106 trans-04">
-                $50.00 - $100.00
+               ₹50.00 - ₹100.00
               </a>
             </li>
 
             <li className="p-b-6">
               <a href="/" className="filter-link stext-106 trans-04">
-                $100.00 - $150.00
+               ₹100.00 - ₹150.00
               </a>
             </li>
 
             <li className="p-b-6">
               <a href="/" className="filter-link stext-106 trans-04">
-                $150.00 - $200.00
+                ₹150.00 - ₹200.00
               </a>
             </li>
 
             <li className="p-b-6">
               <a href="/" className="filter-link stext-106 trans-04">
-                $200.00+
+                ₹200.00+
               </a>
             </li>
           </ul>

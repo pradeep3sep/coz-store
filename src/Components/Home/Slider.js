@@ -25,7 +25,7 @@ export default function Slider() {
                 pauseOnMouseEnter: true,
               }}
               pagination={{ clickable: true }}
-              onSwiper={(swiper) => console.log(swiper)}
+              // onSwiper={(swiper) => console.log(swiper)}
               // onSlideChange={() => console.log("slide change")}
             >
               <SwiperSlide>

@@ -2,15 +2,29 @@ import React from "react";
 import CartProduct from "./CartProduct";
 import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
+import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Cart(props) {
+  const [closebtn, setclosebtn] = useState(props.onClick[0])
+
+  useEffect(() => {
+    setclosebtn(props.onClick[0])
+  }, [props])
+  
+  function closeclickbtn(){
+    setclosebtn(false)
+    window.scrollTo(0, 0)
+  }
+
   const cartproductdetails = useSelector(state => state.Cart.items)
   const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
 
 
   return (
     <>
-      <div className={`wrap-header-cart js-panel-cart ${props.onClick[0] ? "show-header-cart" : ''}`}>
+      <div className={`wrap-header-cart js-panel-cart ${ closebtn ? "show-header-cart" : ''}`}>
         <div className="s-full js-hide-cart"></div>
 
         <div className="header-cart flex-col-l p-l-65 p-r-25">
@@ -29,14 +43,14 @@ export default function Cart(props) {
             </ul>
 
             <div className="w-full">
-              <div className="header-cart-total w-full p-tb-40">Total: ${Math.round(cartTotalPrice)}</div>
+              <div className="header-cart-total w-full p-tb-40">Total: ₹{Math.round(cartTotalPrice)}</div>
 
               <div className="header-cart-buttons flex-w w-full">
-                <Link className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" to='/cart'>View Cart</Link>
+                <Link onClick={closeclickbtn} className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" to='/cart'>View Cart</Link>
 
                 <a
-                  href="shoping-cart.html"
-                  className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10"
+                  onClick={displayRazorpay}
+                  className="maincheckout flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10"
                 >
                   Check Out
                 </a>

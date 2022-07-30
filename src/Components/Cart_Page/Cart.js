@@ -5,6 +5,7 @@ import Coupan from "./Coupan";
 import ProductTable from "./ProductTable";
 import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
+import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
 
 export default function Cart() {
   const cartproductdetails = useSelector(state => state.Cart.items)
@@ -38,7 +39,7 @@ export default function Cart() {
                     White Shirt Pleat
                   </a>
 
-                  <span className="header-cart-item-info">1 x $19.00</span>
+                  <span className="header-cart-item-info">1 x ₹19.00</span>
                 </div>
               </li>
             </ul>
@@ -50,15 +51,15 @@ export default function Cart() {
 
               <div className="header-cart-buttons flex-w w-full">
                 <a
-                  href="shoping-cart.html"
+                  href="#"
                   className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10"
                 >
                   View Cart
                 </a>
 
                 <a
-                  href="shoping-cart.html"
-                  className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10"
+                  onClick={displayRazorpay}
+                  className="maincheckout flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10"
                 >
                   Check Out
                 </a>

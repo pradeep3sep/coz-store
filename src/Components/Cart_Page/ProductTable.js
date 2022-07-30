@@ -31,7 +31,7 @@ export default function ProductTable(props) {
       </td>
       <td className="column-2">{comeData.ProductName}</td>
       <td className="column-3">{comeData.Size}</td>
-      <td className="column-3">$ {comeData.Price}</td>
+      <td className="column-3">₹ {comeData.Price}</td>
       <td className="column-4">
         <div className="wrap-num-product flex-w m-l-auto m-r-0">
           <div onClick={decreaseQty} className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
@@ -43,6 +43,7 @@ export default function ProductTable(props) {
             type="number"
             name="num-product1"
             value={comeData.Quantity}
+            readOnly={true}
           />
 
           <div onClick={increaseQty} className="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
@@ -50,7 +51,7 @@ export default function ProductTable(props) {
           </div>
         </div>
       </td>
-      <td className="column-5">$ {comeData.Quantity * comeData.Price}</td>
+      <td className="column-5">₹ {comeData.Quantity * comeData.Price}</td>
     </tr>
   );
 }

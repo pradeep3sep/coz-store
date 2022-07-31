@@ -11,7 +11,7 @@ export default function CartProduct(props) {
     const Quantity = props.cartproductdetail.Quantity;
     const Size = props.cartproductdetail.Size;
     const id = props.cartproductdetail.id;
-    console.log(props,"cartdetail");
+    // console.log(props,"cartdetail");
 
 
     const dispatch =useDispatch();

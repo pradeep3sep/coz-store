@@ -1,20 +1,23 @@
 import React from "react";
 import CartProduct from "./CartProduct";
 import {useSelector} from "react-redux";
+import { useDispatch} from "react-redux";
+import { UiActions } from "../Store/UiReducer";
 import { Link } from "react-router-dom";
 import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
-import { useState } from "react";
-import { useEffect } from "react";
+
 
 export default function Cart(props) {
-  const [closebtn, setclosebtn] = useState(props.onClick[0])
-
-  useEffect(() => {
-    setclosebtn(props.onClick[0])
-  }, [props])
+  const dispatch = useDispatch();
+  const cartVisStatus = useSelector(state => state.UiThing.cartVisibility)
   
+  console.log(props);
+
+  function closeCart(){
+    dispatch(UiActions.cartdisplay(false));
+  }
   function closeclickbtn(){
-    setclosebtn(false)
+    dispatch(UiActions.cartdisplay(false));
     window.scrollTo(0, 0)
   }
 
@@ -24,14 +27,14 @@ export default function Cart(props) {
 
   return (
     <>
-      <div className={`wrap-header-cart js-panel-cart ${ closebtn ? "show-header-cart" : ''}`}>
+      <div className={`wrap-header-cart js-panel-cart ${ cartVisStatus ? "show-header-cart" : ''}`}>
         <div className="s-full js-hide-cart"></div>
 
         <div className="header-cart flex-col-l p-l-65 p-r-25">
           <div className="header-cart-title flex-w flex-sb-m p-b-8">
             <span className="mtext-103 cl2">Your Cart</span>
 
-            <div className="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart" onClick={props.onClick[1]}>
+            <div onClick={closeCart} className="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart" >
               <i className="zmdi zmdi-close"></i>
             </div>
           </div>

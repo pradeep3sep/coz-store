@@ -213,4 +213,14 @@ ul {
   .label1.rs1::after {
     display: none;
   }
+  .myprofile .login {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center
+  }
+  .login .logName.mob {
+    width: 100px;
+    height: 100px;
+  }
 }

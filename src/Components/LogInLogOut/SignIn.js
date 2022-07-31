@@ -19,8 +19,9 @@ export default function SignIn() {
 
     const logGoogleUser = async () => {
         const { user } = await signInWithGooglePopup();
+        console.log(user,"google log user");
         createUserDocumentFromAuth(user)
-        dispatch(UiActions.setname({displayName: user.displayName, email : user.email }));
+        dispatch(UiActions.setname({displayName: user.displayName, email : user.email, photoURL : user.photoURL }));
             swal(`Welcome!`, `${user.displayName}`, "success");
             if (user.email) {
                 navigate("/");
@@ -40,7 +41,7 @@ export default function SignIn() {
             // Signed in 
             const user = userCredential.user;
             console.log("userpr",user);
-            dispatch(UiActions.setname({displayName: user.displayName, email : user.email }));
+            dispatch(UiActions.setname({displayName: user.displayName, email : user.email, photoURL : user.photoURL }))
             swal(`Welcome Back!`, `${user.displayName}`, "success");
             if (user.email) {
                 navigate("/");

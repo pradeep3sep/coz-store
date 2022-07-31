@@ -13,6 +13,7 @@ export default function MyProfile() {
 
   const displayName = useSelector(state => state.UiThing.logName) 
   const email = useSelector(state => state.UiThing.logEmail) 
+  const photoURL = useSelector(state => state.UiThing.photoURL) 
 
   const auth = getAuth();
     const signOutHandler = async () => {
@@ -37,9 +38,9 @@ export default function MyProfile() {
               <li>
                 <NavLink to="/myprofile">My Profile</NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="/myorders">My Orders</NavLink>
-              </li>
+              </li> */}
               <li>
                <button onClick={signOutHandler} className="w-100 signout">
                     SignOut
@@ -49,13 +50,19 @@ export default function MyProfile() {
           </div>
           <div className="col-md-9">
             <div className="row">
-                <div className="col-1 login">
-                  <div className="logName">
-                      <h5>{displayName.split('').splice(0,1)}</h5>
-                  </div>
-                  {/* <img src="https://www.dropbox.com/s/gi96663v0cm1c3b/product-01.jpg?raw=1" alt="loginImage" /> */}
+                <div className="col-md-1 login">
+                  {
+                    photoURL ?
+
+                    <img src={photoURL} alt="loginImage" />
+                    : 
+
+                    <div className="logName mob">
+                        <h5>{displayName.split('').splice(0,1)}</h5>
+                    </div>
+                  }
                 </div>
-                <div className="col-11">
+                <div className="col-md-11">
                     <h4 className="main-heading">Contact Information</h4>
                     <div className="content-box cus-info-box">
                     <p>{displayName}</p>

@@ -4,6 +4,8 @@ const initialProductstate = {
     isMobile : '',
     logName : '',
     logEmail: "",
+    photoURL : '',
+    cartVisibility : false,
 }
 
 const UiReducer = createSlice({
@@ -16,6 +18,10 @@ const UiReducer = createSlice({
         setname(state,action){
             state.logName = action.payload.displayName
             state.logEmail = action.payload.email
+            state.photoURL = action.payload.photoURL
+        },
+        cartdisplay(state,action){
+            state.cartVisibility = action.payload
         }
     }
 });

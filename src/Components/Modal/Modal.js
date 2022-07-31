@@ -89,7 +89,7 @@ export default function Modal(props) {
 		} else {
 			swal("OOPS!", "Please select all the combination", "error");
 		}
-		console.log(productState,"full state");
+		// console.log(productState,"full state");
 	}
 
 

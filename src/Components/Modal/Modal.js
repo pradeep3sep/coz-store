@@ -7,6 +7,7 @@ import ZoomModal from './ZoomModal/ZoomModal';
 import ShareIcon from './ShareIcon';
 import { useDispatch } from 'react-redux';
 import { CartActions } from '../Store/CartProdcutReducer';
+import CurrencyValue from '../Multicurrency/CurrencyValue';
 
 const initValue = {
 	Image: '',
@@ -69,7 +70,7 @@ export default function Modal(props) {
 
 	const [productState, productdispatch] = useReducer(productReducer, initValue );
 	const [zoomModal, setzoomModal] = useState(true)
-
+	
 	function sizeSelected(size){
 		productdispatch({type: 'SIZE_SELECTED', value: size, id:productId , img: imageArray[0], price: price, prodctName: prodctName})
 	}
@@ -89,7 +90,8 @@ export default function Modal(props) {
 		} else {
 			swal("OOPS!", "Please select all the combination", "error");
 		}
-		// console.log(productState,"full state");
+		console.log(productState.Price,"full state");
+		console.log(props.modalProduct.price,"bhai");
 	}
 
 
@@ -118,7 +120,7 @@ export default function Modal(props) {
 							</h4>
 
 							<span className="mtext-106 cl2">
-								₹{price}
+								<CurrencyValue price={price}/>
 							</span>
 
 							<p className="stext-102 cl3 p-t-23">

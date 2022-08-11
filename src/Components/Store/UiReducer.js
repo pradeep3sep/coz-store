@@ -22,7 +22,8 @@ const UiReducer = createSlice({
         },
         cartdisplay(state,action){
             state.cartVisibility = action.payload
-        }
+        },
+        
     }
 });
 

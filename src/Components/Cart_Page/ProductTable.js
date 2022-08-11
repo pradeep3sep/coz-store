@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch} from "react-redux";
 import { CartActions } from '../Store/CartProdcutReducer';
 import swal from "sweetalert";
+import CurrencyValue from "../Multicurrency/CurrencyValue";
 
 export default function ProductTable(props) {
     const comeData = props.data
-
     const dispatch = useDispatch();
 
     const removeArticle = ()=>{
@@ -31,7 +31,10 @@ export default function ProductTable(props) {
       </td>
       <td className="column-2">{comeData.ProductName}</td>
       <td className="column-3">{comeData.Size}</td>
-      <td className="column-3">₹ {comeData.Price}</td>
+      {/* <td className="column-3">₹ {comeData.Price}</td> */}
+      <td className="column-3">
+        <CurrencyValue price={comeData.Price}/>
+      </td>
       <td className="column-4">
         <div className="wrap-num-product flex-w m-l-auto m-r-0">
           <div onClick={decreaseQty} className="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
@@ -51,7 +54,8 @@ export default function ProductTable(props) {
           </div>
         </div>
       </td>
-      <td className="column-5">₹ {comeData.Quantity * comeData.Price}</td>
+      {/* <td className="column-5">₹ {comeData.Quantity * comeData.Price}</td> */}
+      <td className="column-5"><CurrencyValue qty={comeData.Quantity} price={comeData.Price}/></td>
     </tr>
   );
 }

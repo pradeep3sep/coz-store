@@ -10,8 +10,6 @@ import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
 export default function Cart(props) {
   const dispatch = useDispatch();
   const cartVisStatus = useSelector(state => state.UiThing.cartVisibility)
-  
-  console.log(props);
 
   function closeCart(){
     dispatch(UiActions.cartdisplay(false));
@@ -23,7 +21,6 @@ export default function Cart(props) {
 
   const cartproductdetails = useSelector(state => state.Cart.items)
   const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
-
 
   return (
     <>
@@ -46,7 +43,7 @@ export default function Cart(props) {
             </ul>
 
             <div className="w-full">
-              <div className="header-cart-total w-full p-tb-40">Total: ₹{Math.round(cartTotalPrice)}</div>
+              <div className="header-cart-total w-full p-tb-40">Total: ₹{Math.round(cartTotalPrice )}</div>
 
               <div className="header-cart-buttons flex-w w-full">
                 <Link onClick={closeclickbtn} className="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" to='/cart'>View Cart</Link>

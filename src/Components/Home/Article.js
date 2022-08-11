@@ -1,11 +1,14 @@
 import React from "react";
 import swal from "sweetalert";
+import { Image, Shimmer } from 'react-shimmer'
 import { useDispatch} from "react-redux";
 import { WishlistActions } from '../Store/WishlistReducer';
 import { useState } from "react";
+import CurrencyValue from "../Multicurrency/CurrencyValue";
 
 export default function Article(props) {
     let passing = props.aricelDa;
+
     const dispatch = useDispatch();
     const [iconCheck, setfirst] = useState(false)
 
@@ -31,7 +34,11 @@ export default function Article(props) {
       {/* <!-- Block2 --> */}
       <div className="block2">
         <div className="block2-pic hov-img0">
-          <img src={passing.image[0]} alt="IMG-PRODUCT" />
+          {/* <img src={passing.image[0]} alt="IMG-PRODUCT" /> */}
+          <Image
+            src={passing.image[0]}
+            fallback={<Shimmer width={277} height={344} />}
+          />
 
           <a
             role="button"
@@ -51,7 +58,9 @@ export default function Article(props) {
               {passing.productName}
             </a>
 
-            <span className="stext-105 cl3">₹{passing.price}</span>
+            <span className="stext-105 cl3">
+              <CurrencyValue price={passing.price}/>
+            </span>
           </div>
 
           <div  className="block2-txt-child2 flex-r p-t-3">

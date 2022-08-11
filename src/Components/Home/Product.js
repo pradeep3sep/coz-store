@@ -20,7 +20,12 @@ export default function Product() {
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Yellow", "Grey"],
       productName: "Esprit Ruffle Shirt",
-      price: "16",
+      price: {
+        mrpprice: "410",
+        usdprice: "510",
+        gbpprice: '610',
+        eurprice: '710',
+      },
       id: 1,
     },
     {
@@ -35,7 +40,12 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "White", "Navy"],
       productName: "Herschel supply",
-      price: "35",
+      price: {
+        mrpprice: "420",
+        usdprice: "250",
+        gbpprice: '260',
+        eurprice: '720',
+      },
       id: 2,
     },
     {
@@ -50,7 +60,12 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XL"],
       color: ["Red", "Blue", "Black", "Grey"],
       productName: "Only Check Trouser",
-      price: "25",
+      price: {
+        mrpprice: "403",
+        usdprice: "503",
+        gbpprice: '630',
+        eurprice: '370',
+      },
       id: 3,
     },
     {
@@ -65,7 +80,12 @@ export default function Product() {
       size: ["XS", "S", "L", "XL", "XXL"],
       color: ["Red", "Green", "White", "Grey"],
       productName: "Classic Trench Coat",
-      price: "75",
+      price: {
+        mrpprice: "440",
+        usdprice: "450",
+        gbpprice: '640',
+        eurprice: '704',
+      },
       id: 4,
     },
     {
@@ -80,7 +100,12 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XXL"],
       color: ["Pink", "Blue", "White", "Grey"],
       productName: "Front Pocket Jumper",
-      price: "34",
+      price: {
+        mrpprice: "540",
+        usdprice: "550",
+        gbpprice: '605',
+        eurprice: '705',
+      },
       id: 5,
     },
     {
@@ -95,7 +120,12 @@ export default function Product() {
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "White", "Navy"],
       productName: "Vintage Inspired Classic",
-      price: "93",
+      price: {
+        mrpprice: "640",
+        usdprice: "560",
+        gbpprice: '606',
+        eurprice: '706',
+      },
       id: 6,
     },
     {
@@ -110,7 +140,12 @@ export default function Product() {
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Red", "Blue", "Yellow", "Grey"],
       productName: "Shirt in Stretch Cotton",
-      price: "52",
+      price: {
+        mrpprice: "740",
+        usdprice: "570",
+        gbpprice: '607',
+        eurprice: '707',
+      },
       id: 7,
     },
     {
@@ -125,7 +160,12 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Pink", "White", "Grey"],
       productName: "Pieces Metallic Printed",
-      price: "18",
+      price: {
+        mrpprice: "407",
+        usdprice: "508",
+        gbpprice: '608',
+        eurprice: '708',
+      },
       id: 8,
     },
     {
@@ -140,7 +180,12 @@ export default function Product() {
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Black", "Blue", "White", "Grey"],
       productName: "Converse All Star Hi Plimsolls",
-      price: "75",
+      price: {
+        mrpprice: "409",
+        usdprice: "590",
+        gbpprice: '960',
+        eurprice: '790',
+      },
       id: 9,
     },
     {
@@ -155,7 +200,12 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Green", "Grey"],
       productName: "Femme T-Shirt In Stripe",
-      price: "25",
+      price: {
+        mrpprice: "400",
+        usdprice: "500",
+        gbpprice: '600',
+        eurprice: '700',
+      },
       id: 10,
     },
     {
@@ -170,7 +220,12 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XXL"],
       color: ["Red", "Blue", "Navy", "Grey"],
       productName: "Herschel supply",
-      price: "63",
+      price: {
+        mrpprice: "410",
+        usdprice: "530",
+        gbpprice: '604',
+        eurprice: '705',
+      },
       id: 11,
     },
     {
@@ -185,7 +240,12 @@ export default function Product() {
       size: ["S", "M", "L", "XL", "XXL"],
       color: ["Pink", "Blue", "White", "Grey"],
       productName: "Herschel supply",
-      price: "63",
+      price: {
+        mrpprice: "406",
+        usdprice: "507",
+        gbpprice: '608',
+        eurprice: '709',
+      },
       id: 12,
     },
     {
@@ -200,7 +260,12 @@ export default function Product() {
       size: ["XS", "S", "M", "L", "XL"],
       color: ["Red", "Blue", "White", "Green"],
       productName: "T-Shirt with Sleeve",
-      price: "18",
+      price: {
+        mrpprice: "430",
+        usdprice: "520",
+        gbpprice: '605',
+        eurprice: '706',
+      },
       id: 13,
     },
     {
@@ -215,7 +280,12 @@ export default function Product() {
       size: ["XS", "S", "M", "XL", "XXL"],
       color: ["Green", "Blue", "White", "Grey"],
       productName: "Pretty Little Thing",
-      price: "54",
+      price: {
+        mrpprice: "403",
+        usdprice: "504",
+        gbpprice: '607',
+        eurprice: '709',
+      },
       id: 14,
     },
     {
@@ -230,7 +300,12 @@ export default function Product() {
       size: ["XS", "S", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Maroon", "Grey"],
       productName: "Mini Silver Mesh Watch",
-      price: "86",
+      price: {
+        mrpprice: "410",
+        usdprice: "520",
+        gbpprice: '605',
+        eurprice: '707',
+      },
       id: 15,
     },
     {
@@ -245,7 +320,12 @@ export default function Product() {
       size: ["XS", "M", "L", "XL", "XXL"],
       color: ["Red", "Blue", "Green", "Grey"],
       productName: "Square Neck Back",
-      price: "29",
+      price: {
+        mrpprice: "402",
+        usdprice: "530",
+        gbpprice: '670',
+        eurprice: '790',
+      },
       id: 16,
     },
   ];

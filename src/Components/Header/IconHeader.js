@@ -6,9 +6,6 @@ import { UiActions } from "../Store/UiReducer";
 
 export default function IconHeader(props) {
     const dispatch = useDispatch();
-    console.log(props,"iconheader");
-
-
 
     const cartqty = useSelector(state => state.Cart.TotalArticle)
     const wishlistqty = useSelector(state => state.Wishlist.TotalArticle) 

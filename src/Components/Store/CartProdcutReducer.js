@@ -4,6 +4,7 @@ const initialProductstate = {
     items: [],
     TotalArticle: 0,
     TotalPrice: 0,
+    currentCurrency: {setvalue :"INR(₹)", symbol : "₹", upiprice : "mrpprice"}
 }
 
 const CartProdcutReducer = createSlice({
@@ -11,24 +12,26 @@ const CartProdcutReducer = createSlice({
     initialState : initialProductstate,
     reducers : {
         addproduct(state,action){
+            const upiprice = state.currentCurrency.upiprice
             const newItem = action.payload;
             const existingItem = state.items.find((item) => item.id === newItem.id && item.Size === newItem.Size);
+            state.TotalPrice = state.TotalPrice + (newItem.Quantity * newItem.Price[upiprice])
             if (!existingItem) {
                 state.items.push(newItem);
                 state.TotalArticle++; 
-                state.TotalPrice = state.TotalPrice + (newItem.Quantity * newItem.Price)
             } else {
                 existingItem.Quantity = existingItem.Quantity + newItem.Quantity
-                state.TotalPrice = state.TotalPrice + (newItem.Quantity * newItem.Price)
             }
         },
         removeproduct(state,action){
+            const upiprice = state.currentCurrency.upiprice
             const newItem = action.payload
             state.items = state.items.filter((item)=> item.id !== newItem.id || item.Size !== newItem.Size)
             state.TotalArticle--;
-            state.TotalPrice = state.TotalPrice - (newItem.Quantity * newItem.Price)
+            state.TotalPrice = state.TotalPrice - (newItem.Quantity * newItem.Price[upiprice])
         },
         changeQty(state,action){
+            const upiprice = state.currentCurrency.upiprice
             const changeArticle = action.payload
             const needAction = changeArticle.needAction
             if (needAction === 'decreaseQty') {
@@ -43,8 +46,11 @@ const CartProdcutReducer = createSlice({
                 const updateArticle = state.items.find((item)=> item.id === changeArticle.id && item.Size === changeArticle.Size)
                 updateArticle.Quantity++;
                 //multiply by 1 is to convert string to number
-                state.TotalPrice = state.TotalPrice +  (updateArticle.Price * 1)
+                state.TotalPrice = state.TotalPrice +  (updateArticle.Price[upiprice] * 1)
             }
+        },
+        currency(state,action){
+            state.currentCurrency = action.payload
         }
     }
 });

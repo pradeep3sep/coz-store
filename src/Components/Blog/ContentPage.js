@@ -45,7 +45,7 @@ export default function ContentPage() {
             <div className="col-md-8 col-lg-9 p-b-80">
               <div className="p-r-45 p-r-0-lg">
                 {/* <!-- item blog --> */}
-                {blog_list_items.map((blog_list_item,index) => <ItemBlog passing_value = {blog_list_item} key={`₹{index}_cp`} />)}
+                {blog_list_items.map((blog_list_item,index) => <ItemBlog passing_value = {blog_list_item} key={`₹${index}_cp`} />)}
 
                 {/* <!-- Pagination --> */}
                 <Pagination/>

@@ -25,7 +25,7 @@ export default function Marquee_m() {
           </a>
 
           <a href="/" className="flex-c-m p-lr-10 trans-04">
-            USD
+            INR
           </a>
         </div>
       </li>

@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Cart from './Cart'
 import Header from './Header'
 
 export default function MainHeader() {
   const [showcart, seshowcart] = useState(false);
-  const inputRef = useRef('');
+
   useEffect(() => {
     window.addEventListener("scroll", ()=>{
       let scrollDist = window.scrollY

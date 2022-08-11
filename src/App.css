@@ -143,7 +143,8 @@ ul {
 }
 
 /* my profile */
-.myprofile .sidesec li a, .myprofile .sidesec li button {
+.myprofile .sidesec li a,
+.myprofile .sidesec li button {
   /* background-color: #eee; */
   text-transform: uppercase;
   padding: 12px 15px;
@@ -177,6 +178,37 @@ ul {
 .maincheckout {
   cursor: pointer;
 }
+.currency {
+  font-family: Poppins-Regular;
+  font-size: 12px;
+  line-height: 1.8;
+  height: 100%;
+  color: #b2b2b2;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+.currency h6{
+  font-size: 12px;
+}
+.currency .subcurrency  {
+  font-size: 14px;
+}
+.currency .subcurrency {
+  display: none;
+}
+.currency .sub {
+  position: absolute;
+  top: 40px;
+  background-color: #fff;
+  min-width: 90px;
+  max-width: 225px;
+  z-index: 9999;
+  text-align: center;
+  -webkit-box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
+  -webkit-transition: all 0.4s;
+}
+.currency:hover .subcurrency {
+  display: block;
+}
 @media (max-width: 767px) {
   .mobproduct {
     padding-top: 10px !important;
@@ -185,7 +217,8 @@ ul {
     left: 77.5%;
     top: 7.3%;
   }
-  .zoom-modal .slick-prev:before, .zoom-modal .slick-next:before {
+  .zoom-modal .slick-prev:before,
+  .zoom-modal .slick-next:before {
     display: none;
   }
   .wrap-header-mobile {
@@ -195,7 +228,7 @@ ul {
     width: 100%;
     z-index: 2;
   }
-  .menu-mobile.shomenu  {
+  .menu-mobile.shomenu {
     position: fixed;
     top: 72px;
     z-index: 2;
@@ -207,7 +240,8 @@ ul {
   .section-slide {
     padding-top: 71px;
   }
-  .praddeep_swiper .swiper-button-next:after, .praddeep_swiper .swiper-button-prev:after {
+  .praddeep_swiper .swiper-button-next:after,
+  .praddeep_swiper .swiper-button-prev:after {
     display: none;
   }
   .label1.rs1::after {
@@ -217,7 +251,7 @@ ul {
     padding: 20px;
     text-align: center;
     display: flex;
-    justify-content: center
+    justify-content: center;
   }
   .login .logName.mob {
     width: 100px;

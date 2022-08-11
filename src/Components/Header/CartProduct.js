@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch} from "react-redux";
 import swal from "sweetalert";
 import { CartActions } from '../Store/CartProdcutReducer';
+import CurrencyValue from "../Multicurrency/CurrencyValue";
 
 export default function CartProduct(props) {
     const Color = props.cartproductdetail.Color;
@@ -33,7 +34,7 @@ export default function CartProduct(props) {
         </a>
         <span className="header-cart-item-info">{Size}</span>
         <span className="header-cart-item-info">{Color}</span>
-        <span className="header-cart-item-info">{Quantity} x ₹{Price}</span>
+        <span className="header-cart-item-info">{Quantity} x <CurrencyValue price={Price}/></span>
       </div>
     </li>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Selectcurrency from "../Multicurrency/Selectcurrency";
 
 export default function Marquee() {
   return (
@@ -13,19 +14,11 @@ export default function Marquee() {
           <Link to='/about' className="flex-c-m trans-04 p-lr-25">
             Help & FAQs
           </Link>
-          
 
-          {/* <a href="/" className="flex-c-m trans-04 p-lr-25">
-            My Account
-          </a> */}
-
-          <a href="/" className="flex-c-m trans-04 p-lr-25">
+          <Link className="flex-c-m trans-04 p-lr-25" to='/'>
             EN
-          </a>
-
-          <a href="/" className="flex-c-m trans-04 p-lr-25">
-            USD
-          </a>
+          </Link>
+          <Selectcurrency/>
         </div>
       </div>
     </div>

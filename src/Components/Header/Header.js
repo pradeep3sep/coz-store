@@ -12,9 +12,12 @@ import MarqueeM from './MobileHeader/Marquee_m'
 import MenuMobile from "./MobileHeader/MenuMobile";
 import { useState } from "react";
 import SearchMobile from "./MobileHeader/SearchMobile";
+import { useLocation } from 'react-router-dom';
 
 
 const Header = (props) => {
+  let location = useLocation();
+
   // This is using the custom hook for checking the mobile
   const mobileCheck = useCheckMobileScreen()
 
@@ -39,7 +42,7 @@ const Header = (props) => {
       <header>
         <div className="container-menu-desktop">
           <Marquee/>
-          <div className="wrap-menu-desktop how-shadow1">
+          <div className={`wrap-menu-desktop  ${location.pathname === '/' ? '' : 'how-shadow1'}`}>
             <nav className="limiter-menu-desktop container">
               <Logo/>
               <HeaderMenu/>

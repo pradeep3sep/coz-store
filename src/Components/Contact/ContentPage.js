@@ -1,9 +1,22 @@
 import React from 'react'
+import GoogleMapReact from 'google-map-react';
+
+
+const AnyReactComponent = ({ text }) => <div ><div className='mylocation'>{text}</div><div><img src={require("../../images/location.svg").default} className='location' alt="marker" /></div></div>;
 
 export default function ContentPage() {
+
+	const defaultProps = {
+		center: {
+		  lat: 28.62862815570484,
+		  lng: 77.33748584995749
+		},
+		zoom: 15
+	  };
+	
   return (
     <>
-        <section className="bg0 p-t-104 p-b-116">
+    <section className="bg0 p-t-104 p-b-116">
 		<div className="container">
 			<div className="flex-w flex-tr">
 				<div className="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
@@ -76,6 +89,21 @@ export default function ContentPage() {
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div>
+			<div style={{ height: '100vh', width: '88%', margin: "auto" }}>
+				<GoogleMapReact
+					bootstrapURLKeys={{ key: "" }}
+					defaultCenter={defaultProps.center}
+					defaultZoom={defaultProps.zoom}
+				>
+					<AnyReactComponent
+					lat={28.62862815570484}
+					lng={77.33748584995749}
+					text="I'm Here"
+					/>
+				</GoogleMapReact>
 			</div>
 		</div>
 	</section>	

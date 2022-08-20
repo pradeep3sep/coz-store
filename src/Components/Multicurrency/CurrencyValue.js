@@ -18,9 +18,9 @@ export default function CurrencyValue({price, qty}) {
     }
 
   return (
-    <div>
+    <>
     {/* { qty  ? <span>{currencySymbol}{value}</span> : <span>{currencySymbol}{ qty * value}</span> } */}
     <span>{currencySymbol}{value}</span>
-    </div>
+    </>
   )
 }

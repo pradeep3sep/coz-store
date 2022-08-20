@@ -102,7 +102,15 @@ ul {
   justify-content: center;
   align-items: center;
 }
-
+.location {
+  height: 50px;
+  width: 50px;
+  filter: invert(27%) sepia(49%) saturate(2871%) hue-rotate(346deg)
+    brightness(97%) contrast(94%);
+}
+.mylocation {
+  color: white;
+}
 .google-btn {
   width: 200px;
   height: 42px;
@@ -186,10 +194,10 @@ ul {
   color: #b2b2b2;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 }
-.currency h6{
+.currency h6 {
   font-size: 12px;
 }
-.currency .subcurrency  {
+.currency .subcurrency {
   font-size: 14px;
 }
 .currency .subcurrency {

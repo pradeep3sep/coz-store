@@ -1,11 +1,56 @@
 import React from "react";
 import {useSelector} from "react-redux";
-import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
+import {Helmet} from "react-helmet";
+import displayRazorpay1 from "../testRazorpay/utils/PaymentGateway";
 
 export default function CartTotal() {
   const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
 
+  var options = {
+    "key": process.env.REACT_APP_KEY_ID, // Enter the Key ID generated from the Dashboard
+    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Acme Corp",
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": "order_K6CEbaQhGuoSDR", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "handler": function (response){
+        alert(response.razorpay_payment_id);
+        alert(response.razorpay_order_id);
+        alert(response.razorpay_signature)
+    },
+    "prefill": {
+        "name": "Gaurav Kumar",
+        "email": "gaurav.kumar@example.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+  };
+  const rzp1 = new window.Razorpay(options);
+  rzp1.on('payment.failed', function (response){
+          alert(response.error.code);
+          alert(response.error.description);
+          alert(response.error.source);
+          alert(response.error.step);
+          alert(response.error.reason);
+          alert(response.error.metadata.order_id);
+          alert(response.error.metadata.payment_id);
+  });
+  function displayRazorpay(e){
+    rzp1.open();
+    e.preventDefault();
+  }
+
   return (
+    <>
+    <Helmet>
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    </Helmet>
     <div className="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
       <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
         <h4 className="mtext-109 cl2 p-b-30">Cart Totals</h4>
@@ -79,10 +124,11 @@ export default function CartTotal() {
           </div>
         </div>
 
-        <div onClick={displayRazorpay} className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+        <div onClick={displayRazorpay1} className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
           Proceed to Checkout
         </div>
       </div>
     </div>
+    </>
   );
 }

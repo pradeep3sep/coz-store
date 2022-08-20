@@ -7,13 +7,27 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { signInWithGooglePopup, createUserDocumentFromAuth } from '../Firebase/SignInWithGoogle_Firebase.js';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword,RecaptchaVerifier } from "firebase/auth";
 
 export default function SignIn() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
     const auth = getAuth();
+
+
+    window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+        'size': 'normal',
+        'callback': (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // ...
+        },
+        'expired-callback': () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+        }
+      }, auth);
+
+
     const [email, setEmail] = useState('');
     const [password, setpassword] = useState('');
 

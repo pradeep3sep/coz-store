@@ -33,7 +33,7 @@ export default function App(props) {
   return (
     <div className='container'>
       <div className='row'>
-        <div className='col-2'>
+        <div className='col-2 verticalslider'>
             <Slider {...settings} ref={(slider2) => setNav2(slider2)} asNavFor={nav1}>
               {props.imageArray.map((arr,index)=>{
                 return <div key={`_p${index}`}>
@@ -47,7 +47,7 @@ export default function App(props) {
               })}
           </Slider>
         </div>
-        <div className='col-10 horizontal_slider'>
+        <div className='col-10 col-sm-12 horizontal_slider'>
         <Slider {...settings1} ref={(slider1) => setNav1(slider1)} asNavFor={nav2} >
             {props.imageArray.map((arr,index)=>{
                 return <div key={`_p${index}`}>

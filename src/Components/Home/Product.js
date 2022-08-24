@@ -3,10 +3,13 @@ import Modal from "../Modal/Modal";
 import Article from "./Article";
 import FilterHome from "./FilterHome";
 import Search from "./Search";
+import {GettingAllProducts} from "../RealTimeDatabse/RealTimeDatabase"
 // import axios from 'axios';
 // import { useEffect } from "react";
 
 export default function Product() {
+  const cgech = GettingAllProducts()
+  console.log(cgech,"mmmmmmm");
   let aricelData = [
     {
       gender: "women",

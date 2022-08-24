@@ -86,11 +86,16 @@ export default function Modal(props) {
 	function AddToCart(){
 		if (productState.Size && productState.Color) {
 			dispatch(CartActions.addproduct(productState))
+			if (localStorage.getItem("isLoggedIn")) {
+				
+			} else {
+				localStorage.setItem("withoutLogProductid", productState.id);
+			}
 			swal("Congratulations!", "Your product has been added to the cart!", "success");
 		} else {
 			swal("OOPS!", "Please select all the combination", "error");
 		}
-		console.log(productState.Price,"full state");
+		console.log(productState,"full state");
 		console.log(props.modalProduct.price,"bhai");
 	}
 

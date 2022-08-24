@@ -17,11 +17,13 @@ import SignIn from "./Components/LogInLogOut/SignIn";
 import Wishlist from "./Components/Wishlist/Wishlist";
 import MyProfile from "./Components/MyProfile/MyProfile";
 // import InitialLoader from "./Components/Loader/InitialLoader";
-import { getDatabase,child, ref, onValue, query, orderByChild, equalTo, limitToFirst, limitToLast, startAt,startAfter, endAt, endBefore, set, update, remove, get } from "firebase/database";
+import { Encription, Decription } from "../src/Components/Encryption/Encription"
+
 
 function App() {
-
-
+  
+  const encryptedData =  Encription("testing","bbb");
+  console.log(Decription(encryptedData,"bbb"));
 
 
   return (

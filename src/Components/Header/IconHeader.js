@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import { UiActions } from "../Store/UiReducer";
+import { getAuth } from "firebase/auth";
 
-export default function IconHeader(props) {
-    const dispatch = useDispatch();
+export default function IconHeader() {
+  const dispatch = useDispatch();
+
+  //below is for checking the login status
+  const [authState, setAuthState] = useState({
+    displayName : '',
+    email : "",
+    photoURL : ""
+  })
+  useEffect(() => {
+    dispatch(UiActions.setname({displayName : authState.displayName, email : authState.email,photoURL : authState.photoURL }))
+  }, [dispatch , authState])
+
+
+  useEffect(() => {
+    const unregisterAuthObserver = getAuth().onAuthStateChanged(user => 
+      setAuthState({displayName : user.displayName,
+      email : user.email,
+      photoURL : user.photoURL})
+      )
+      return () => {unregisterAuthObserver() }
+    }, [])
+  //here it ends
 
     const cartqty = useSelector(state => state.Cart.TotalArticle)
     const wishlistqty = useSelector(state => state.Wishlist.TotalArticle) 
@@ -20,10 +42,6 @@ export default function IconHeader(props) {
   
     return (
     <div className="wrap-icon-header flex-w flex-r-m">
-      {/* <div className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search" onClick={props.showSearch}>
-        <i className="zmdi zmdi-search"></i>
-      </div> */}
-
       <div
         className="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart"
         data-notify={cartqty}
@@ -38,6 +56,9 @@ export default function IconHeader(props) {
       <div
         className="login icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart"
       >
+      
+       
+     
       {displayName ? 
         <Link to='/myprofile'>
           <div className="logName">

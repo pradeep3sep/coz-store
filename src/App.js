@@ -19,7 +19,6 @@ import MyProfile from "./Components/MyProfile/MyProfile";
 // import InitialLoader from "./Components/Loader/InitialLoader";
 import { Encription, Decription } from "../src/Components/Encryption/Encription"
 
-
 function App() {
   
   const encryptedData =  Encription("testing","bbb");

@@ -58,11 +58,11 @@ const db = getDatabase();
 //   }
 // })
 // .catch((error)=> alert(error))
-export function GettingAllProducts() {
+export async function GettingAllProducts() {
   const db = getDatabase();
   const dbref = ref(db);
-  const promise = get(child(dbref, "productList"))
-  const dataPromise = promise.then(snapshot => snapshot.val())
+  const list = get(child(dbref, "productList"))
+  const dataPromise = await list.then(snapshot =>snapshot.val())
   return dataPromise
 }
 
@@ -139,19 +139,16 @@ export function GettingAllProducts() {
 // })
 // .catch((error)=> alert(error))
 
-export function GettingDataOfParticluarId(passingid) {
-  const que = query(
-    ref(db, "productList"),
-    orderByChild("id"),
-    equalTo(passingid)
-  );
-  get(que)
+export async function GettingDataOfParticluarId(passingid) {
+  const que = query(ref(db, "productList"),orderByChild("id"),equalTo(passingid));
+  const idwiseData = await get(que)
     .then((snapshot) => {
       if (snapshot) {
-        console.log(snapshot.val(), "snapshot iss here");
+        return snapshot.val()
       } else {
         alert("no data found");
       }
     })
     .catch((error) => console.log(error));
+  return idwiseData
 }

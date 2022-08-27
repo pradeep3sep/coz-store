@@ -1,10 +1,12 @@
 import React from "react";
 import swal from "sweetalert";
+import {useSelector} from "react-redux";
 import { Image, Shimmer } from 'react-shimmer'
 import { useDispatch} from "react-redux";
 import { WishlistActions } from '../Store/WishlistReducer';
 import { useState } from "react";
 import CurrencyValue from "../Multicurrency/CurrencyValue";
+import { addItemWishlist, removeItemWishlist } from '../RealTimeDatabse/FirestoreDatabase'
 
 export default function Article(props) {
     let passing = props.aricelDa;
@@ -16,13 +18,20 @@ export default function Article(props) {
       props.clickedProduct(passing.id)
       props.showModal();
     }
+    const wishlistqty = useSelector(state => state.Wishlist)
+
     function addwhishlist(){
       dispatch(WishlistActions.activeproduct({product : passing, type: "add"}));
+      const datacheck = addItemWishlist({TotalArticle : wishlistqty.TotalArticle + 1, items : [passing, ...wishlistqty.items]})
+      datacheck.then((error)=> console.log("error",error))
       swal("Congratulations!", "Your product has been added to the Wishlist!", "success");
       setfirst(true)
     }
+    
+
     function removewhishlist(){
       dispatch(WishlistActions.activeproduct({product : passing, type: "remove"}));
+      removeItemWishlist(passing)
       swal("Your product has been remove from the Wishlist!");
       setfirst(false)
     }

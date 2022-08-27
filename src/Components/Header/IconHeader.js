@@ -39,6 +39,9 @@ export default function IconHeader() {
     function whislistPageopen(){
       window.scroll(0,0)
     }
+    function routemyprofile() {
+      window.scroll(0,0)
+    }
   
     return (
     <div className="wrap-icon-header flex-w flex-r-m">
@@ -55,10 +58,8 @@ export default function IconHeader() {
       </Link>
       <div
         className="login icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-cart"
+        onClick={routemyprofile}
       >
-      
-       
-     
       {displayName ? 
         <Link to='/myprofile'>
           <div className="logName">

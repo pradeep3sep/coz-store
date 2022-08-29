@@ -3,10 +3,15 @@ import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import { UiActions } from "../Store/UiReducer";
+import { WishlistActions } from "../Store/WishlistReducer";
 import { getAuth } from "firebase/auth";
+import {gettingUserDetailsfromFirestore} from "../RealTimeDatabse/FirestoreDatabase"
+
+
 
 export default function IconHeader() {
   const dispatch = useDispatch();
+  const auth = getAuth();
 
   //below is for checking the login status
   const [authState, setAuthState] = useState({
@@ -14,9 +19,15 @@ export default function IconHeader() {
     email : "",
     photoURL : ""
   })
+  const [wishState, setwishState] = useState({
+    items: [],
+    TotalArticle: 0
+  })
+
   useEffect(() => {
     dispatch(UiActions.setname({displayName : authState.displayName, email : authState.email,photoURL : authState.photoURL }))
-  }, [dispatch , authState])
+    dispatch(WishlistActions.activeproduct({items : wishState.items, TotalArticle : wishState.TotalArticle }))
+  }, [dispatch , authState,wishState])
 
 
   useEffect(() => {
@@ -25,8 +36,23 @@ export default function IconHeader() {
       email : user.email,
       photoURL : user.photoURL})
       )
+    
+    // console.log("datas",datas);
       return () => {unregisterAuthObserver() }
     }, [])
+
+
+    useEffect(() => {
+      const datas = gettingUserDetailsfromFirestore().then((response)=> {
+        console.log("response is here",response);
+        setwishState({
+        items: response.allwishlist.items,
+        TotalArticle: response.allwishlist.TotalArticle
+      })})
+    
+      
+    }, [auth.currentUser])
+    
   //here it ends
 
     const cartqty = useSelector(state => state.Cart.TotalArticle)
@@ -53,7 +79,7 @@ export default function IconHeader() {
         <i className="zmdi zmdi-shopping-cart"></i>
       </div>
       <Link onClick={whislistPageopen} to='/wislist' className="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti"
-        data-notify={wishlistqty}>
+        data-notify={wishlistqty ? wishlistqty : 0}>
         <i className="zmdi zmdi-favorite-outline"></i>
       </Link>
       <div

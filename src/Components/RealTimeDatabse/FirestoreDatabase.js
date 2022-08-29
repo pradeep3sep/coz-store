@@ -20,6 +20,25 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth();
 const db = getFirestore();
 
+//this is for getting the user details from the firestore not from the auth.
+export async function gettingUserDetailsfromFirestore(){
+  try {
+    const userDocRef = doc(db, 'users', auth.currentUser.uid);
+    const userSnapshot = await getDoc(userDocRef);
+    if (userSnapshot.exists()) {
+      console.log("Document data:", userSnapshot.data());
+      return userSnapshot.data()
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+    }
+  } catch (error) {
+    console.log(error,"this is the error from the gettingUserDetailsfromFirestore");
+  }
+}
+
+
+//This is for adding item in the wishlist
 export async function addItemWishlist(allwishlist) {
   try {
     const userDocRef = doc(db, 'users', auth.currentUser.uid);
@@ -44,6 +63,7 @@ export async function addItemWishlist(allwishlist) {
   }
 }
 
+//this is for removing the item from the wishlist
 export async function removeItemWishlist(products) {
   const userDocRef = doc(db, 'users', auth.currentUser.uid);
   const docSnap = await getDoc(userDocRef);

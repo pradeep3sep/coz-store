@@ -26,7 +26,7 @@ export async function gettingUserDetailsfromFirestore(){
     const userDocRef = doc(db, 'users', auth.currentUser.uid);
     const userSnapshot = await getDoc(userDocRef);
     if (userSnapshot.exists()) {
-      console.log("Document data:", userSnapshot.data());
+      // console.log("Document data:", userSnapshot.data());
       return userSnapshot.data()
     } else {
       // doc.data() will be undefined in this case

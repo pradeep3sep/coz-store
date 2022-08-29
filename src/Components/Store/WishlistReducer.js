@@ -10,18 +10,23 @@ const WishlistReducer = createSlice({
     initialState : initialProductstate,
     reducers : {
         activeproduct(state,action){
-            state.items = action.payload.items
-            state.TotalArticle = action.payload.TotalArticle;
-            // const status = action.payload.type
-            // const newItem = action.payload.product;
-            // const existingItem = state.items.find((item) => item.id === newItem.id);
+            const status = action.payload.type
+            const newItem = action.payload.product;
             // if (!existingItem && status === "add") {
-            //     state.items.push(newItem);
-            //     state.TotalArticle++; 
-            // } else {
-            //     state.items = action.payload.items
-            //     state.TotalArticle = action.payload.TotalArticle;
-            // }
+                //     state.items.push(newItem);
+                //     state.TotalArticle++; 
+            if (status === "add") {
+                state.items.push(newItem);
+                state.TotalArticle++; 
+            } else if (status === "remove"){
+                const existingItem = state.items.filter((item) => item.id !== newItem.id);
+                state.items = existingItem
+                state.TotalArticle--; 
+            } else {
+                state.items = action.payload.items
+                state.TotalArticle = action.payload.TotalArticle;
+
+            }
         }
     }
 });

@@ -22,7 +22,7 @@ import { Encription, Decription } from "../src/Components/Encryption/Encription"
 function App() {
   
   const encryptedData =  Encription("testing","bbb");
-  console.log(Decription(encryptedData,"bbb"));
+  // console.log(Decription(encryptedData,"bbb"));
 
 
   return (

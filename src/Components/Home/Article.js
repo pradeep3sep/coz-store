@@ -10,22 +10,28 @@ import { addItemWishlist, removeItemWishlist } from '../RealTimeDatabse/Firestor
 
 export default function Article(props) {
     let passing = props.aricelDa;
-
+    
     const dispatch = useDispatch();
-    const [iconCheck, setfirst] = useState(false)
+
+
+    const wishlistitems = useSelector(state => state.Wishlist.items)
+    const checkvisibility = wishlistitems.find((wishitem)=> wishitem.id === passing.id)
+    console.log("wishlistitems",wishlistitems.find((wishitem)=> wishitem.id === passing.id));
+    const [iconCheck, setfirst] = useState(checkvisibility)
 
     function clickeArticle(){
       props.clickedProduct(passing.id)
       props.showModal();
     }
     const wishlistqty = useSelector(state => state.Wishlist)
+    
 
     function addwhishlist(){
       dispatch(WishlistActions.activeproduct({product : passing, type: "add"}));
       const datacheck = addItemWishlist({TotalArticle : wishlistqty.TotalArticle + 1, items : [passing, ...wishlistqty.items]})
       datacheck.then((error)=> console.log("error",error))
       swal("Congratulations!", "Your product has been added to the Wishlist!", "success");
-      setfirst(true)
+      // setfirst(true)
     }
     
 
@@ -75,7 +81,7 @@ export default function Article(props) {
           <div  className="block2-txt-child2 flex-r p-t-3">
 
             {
-               iconCheck || pathcheck() ?
+              iconCheck || checkvisibility ?
                 <i onClick={removewhishlist} className="zmdi zmdi-close"></i>
               :
               <a onClick={addwhishlist}

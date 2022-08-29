@@ -44,7 +44,7 @@ export default function IconHeader() {
 
     useEffect(() => {
       const datas = gettingUserDetailsfromFirestore().then((response)=> {
-        console.log("response is here",response);
+        // console.log("response is here",response);
         setwishState({
         items: response.allwishlist.items,
         TotalArticle: response.allwishlist.TotalArticle

@@ -110,7 +110,7 @@ export default function SignIn() {
                                  <input onChange={handleChange} type="password" name="confirmPassword" id="re_pass" placeholder="Repeat your password"/>
                              </div>
                              <div className={styles[`form-group`]}>
-                                 <input type="checkbox" name="agree-term" id="agree-term" className={styles[`agree-term`]}/>
+                                 <input type="checkbox" checked name="agree-term" id="agree-term" className={styles[`agree-term`]}/>
                                  <label htmlFor="agree-term" className={styles[`label-agree-term`]}><span><span></span></span>I agree all statements in  <a href="/" className={styles[`term-service`]}>Terms of service</a></label>
                            </div>
                              <div className={[styles[`form-group`], styles[`form-button`]]}>

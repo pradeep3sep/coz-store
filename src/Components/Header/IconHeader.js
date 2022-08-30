@@ -7,7 +7,7 @@ import { WishlistActions } from "../Store/WishlistReducer";
 import { getAuth } from "firebase/auth";
 import { CartActions } from "../Store/CartProdcutReducer";
 import {gettingUserDetailsfromFirestore} from "../RealTimeDatabse/FirestoreDatabase"
-
+import { Encription, Decription } from "../Encryption/Encription";
 
 
 export default function IconHeader() {
@@ -43,10 +43,14 @@ export default function IconHeader() {
 
 
   useEffect(() => {
-    const unregisterAuthObserver = getAuth().onAuthStateChanged(user => 
+    const unregisterAuthObserver = getAuth().onAuthStateChanged(user => {
       setAuthState({displayName : user.displayName,
       email : user.email,
       photoURL : user.photoURL})
+    
+      const encryptedData =  Encription(displayName,"cozstore");
+      localStorage.setItem("name", encryptedData);
+    }
       )
     
     // console.log("datas",datas);

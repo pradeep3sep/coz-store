@@ -214,9 +214,9 @@ ul {
   -webkit-box-shadow: 0 1px 5px 0px rgb(0 0 0 / 20%);
   -webkit-transition: all 0.4s;
 }
-.currency:hover .subcurrency {
+/* .currency:hover .subcurrency {
   display: block;
-}
+} */
 @media (max-width: 767px) {
   .verticalslider {
     display: none;

@@ -1,6 +1,7 @@
 import React from "react";
 import swal from "sweetalert";
 import {useSelector} from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import { Image, Shimmer } from 'react-shimmer'
 import { useDispatch} from "react-redux";
 import { WishlistActions } from '../Store/WishlistReducer';
@@ -9,6 +10,7 @@ import CurrencyValue from "../Multicurrency/CurrencyValue";
 import { addItemWishlist, removeItemWishlist } from '../RealTimeDatabse/FirestoreDatabase'
 
 export default function Article(props) {
+  const navigate = useNavigate();
     let passing = props.aricelDa;
     
     const dispatch = useDispatch();
@@ -27,6 +29,18 @@ export default function Article(props) {
     
 
     function addwhishlist(){
+      if ( !localStorage.getItem("name")) {
+        return	swal({
+              title: "Login Needed",
+              text: "Please Login to add items!!!",
+              buttons: true,
+              }).then((accepted)=> {
+              if (accepted) {
+                navigate("/login");
+                window.scrollTo(0,0)
+              }
+            })
+      }
       dispatch(WishlistActions.activeproduct({product : passing, type: "add"}));
       const datacheck = addItemWishlist({TotalArticle : wishlistqty.TotalArticle + 1, items : [passing, ...wishlistqty.items]})
       datacheck.then((error)=> console.log("error",error))

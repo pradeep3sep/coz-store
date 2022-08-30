@@ -1,6 +1,7 @@
 import ProductCarasoul from './ProductCarasoul'
 import VariationSelect from './VariationSelect';
 import QtySelector from './QtySelector'
+import { useNavigate } from 'react-router-dom';
 import { useReducer, useState } from 'react';
 import swal from 'sweetalert';
 import ZoomModal from './ZoomModal/ZoomModal';
@@ -62,6 +63,7 @@ function productReducer(state, action){
 export default function Modal(props) {
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	let prodctName = props.modalProduct.productName;
 	let price = props.modalProduct.price;
@@ -89,6 +91,18 @@ export default function Modal(props) {
 
 	const cartqty = useSelector(state => state.Cart)
 	function AddToCart(){
+		if ( !localStorage.getItem("name")) {
+			return	swal({
+						title: "Login Needed",
+						text: "Please Login to add items!!!",
+						buttons: true,
+			  		}).then((accepted)=> {
+						if (accepted) {
+							navigate("/login");
+							window.scrollTo(0,0)
+						}
+					})
+		}
 		if (productState.Size && productState.Color) {
 			dispatch(CartActions.addproduct(productState))
 			const cartdata = addItemInCart({items : [productState,...cartqty.items], TotalArticle : cartqty.TotalArticle + 1, TotalPrice : cartqty.TotalPrice + (productState.Price.mrpprice * productState.Quantity)})
@@ -97,8 +111,8 @@ export default function Modal(props) {
 		} else {
 			swal("OOPS!", "Please select all the combination", "error");
 		}
-		console.log(productState,"full state");
-		console.log(props.modalProduct.price,"bhai");
+		// console.log(productState,"full state");
+		// console.log(props.modalProduct.price,"bhai");
 	}
 
 

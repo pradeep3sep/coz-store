@@ -7,6 +7,7 @@ export default function SignOut() {
         await signOut(auth).then((response) => {
             // Sign-out successful.
             console.log(response,"log out");
+            localStorage.clear();
           }).catch((error) => {
             // An error happened.
             console.log(error);

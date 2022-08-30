@@ -24,6 +24,7 @@ export default function MyProfile() {
             swal("Congratulations!", "You have Sign out successfully!", "success");
 
             navigate("/");
+            window.location.reload();
           }).catch((error) => {
             // An error happened.
             console.log(error);

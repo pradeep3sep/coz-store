@@ -40,8 +40,10 @@ const CartProdcutReducer = createSlice({
                 if (updateArticle.Quantity < 2) {
                     state.items = state.items.filter((item)=> item.id !== changeArticle.id || item.Size !== changeArticle.Size)
                     state.TotalArticle--;
+                    state.TotalPrice = state.TotalPrice - (updateArticle.Price[upiprice] * 1)
                 } else {
                     updateArticle.Quantity--;
+                    state.TotalPrice = state.TotalPrice - (updateArticle.Price[upiprice] * 1)
                 }
             } else {
                 const updateArticle = state.items.find((item)=> item.id === changeArticle.id && item.Size === changeArticle.Size)

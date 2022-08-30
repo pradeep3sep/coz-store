@@ -142,28 +142,42 @@ export async function removeItemInCart(products) {
 }
 
 export async function changeQtyInCart(typeNdetails){
-  console.log("im called");
   const userDocRef = doc(db, 'users', auth.currentUser.uid);
   const docSnap = await getDoc(userDocRef);
-  let oldCart = [];
+  let oldCart = {};
+  let newCart = {};
   if (docSnap.exists()) {
     oldCart = docSnap.data().Cart;
     let updateArticle = ''
-    const restArticle = oldCart.items.filter((item)=> item.id !== typeNdetails.id && item.Size !== typeNdetails.Size)
+    const restArticle = oldCart.items.filter((item)=> item.id !== typeNdetails.id || item.Size !== typeNdetails.Size)
     if (typeNdetails.needAction === 'increaseQty') {
       updateArticle = oldCart.items.find((item)=> item.id === typeNdetails.id && item.Size === typeNdetails.Size)
       updateArticle.Quantity++;
-
-      // if (updateArticle.Quantity < 2) {
-      //   state.items = state.items.filter((item)=> item.id !== changeArticle.id || item.Size !== changeArticle.Size)
-      //   state.TotalArticle--;
-      // } else {
-      // }
+      newCart = {
+        TotalArticle : oldCart.TotalArticle,
+        TotalPrice : oldCart.TotalPrice + (updateArticle.Price.mrpprice * 1),
+        items : [updateArticle,...restArticle]
+      }
     } else {
+      updateArticle = oldCart.items.find((item)=> item.id === typeNdetails.id && item.Size === typeNdetails.Size)
+      if (updateArticle.Quantity === 1) {
+        newCart = {
+          TotalArticle : oldCart.TotalArticle -1,
+          TotalPrice : oldCart.TotalPrice - (updateArticle.Price.mrpprice * 1),
+          items : [...restArticle]
+        }
 
+      } else {
+        updateArticle.Quantity--;
+        newCart = {
+          TotalArticle : oldCart.TotalArticle,
+          TotalPrice : oldCart.TotalPrice - (updateArticle.Price.mrpprice * 1),
+          items : [updateArticle,...restArticle]
+        }
+      }
     }
     await setDoc(userDocRef, {
-      Cart : [updateArticle,...restArticle]
+      Cart : newCart
     },
     {
       merge: true

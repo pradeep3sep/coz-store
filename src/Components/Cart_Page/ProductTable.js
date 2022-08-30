@@ -18,9 +18,10 @@ export default function ProductTable(props) {
 
     function decreaseQty(){
       dispatch(CartActions.changeQty({needAction: "decreaseQty",id: comeData.id,Size: comeData.Size} ));
+      changeQtyInCart({needAction: "decreaseQty",id: comeData.id,Size: comeData.Size})
     }
     function increaseQty(){
-      // changeQtyInCart({needAction: "increaseQty",id: comeData.id,Size: comeData.Size})
+      changeQtyInCart({needAction: "increaseQty",id: comeData.id,Size: comeData.Size})
       // dispatch(CartActions.removeproduct(props.data));
       dispatch(CartActions.changeQty({needAction: "increaseQty",id: comeData.id,Size: comeData.Size} ));
     }

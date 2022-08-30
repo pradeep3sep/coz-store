@@ -16,7 +16,7 @@ export default function Article(props) {
 
     const wishlistitems = useSelector(state => state.Wishlist.items)
     const checkvisibility = wishlistitems.find((wishitem)=> wishitem.id === passing.id)
-    console.log("wishlistitems",wishlistitems.find((wishitem)=> wishitem.id === passing.id));
+    // console.log("wishlistitems",wishlistitems.find((wishitem)=> wishitem.id === passing.id));
     const [iconCheck, setfirst] = useState(checkvisibility)
 
     function clickeArticle(){

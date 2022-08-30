@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import { removeItemInCart } from '../RealTimeDatabse/FirestoreDatabase';
 
 const initialProductstate = {
     items: [],
@@ -51,6 +52,11 @@ const CartProdcutReducer = createSlice({
         },
         currency(state,action){
             state.currentCurrency = action.payload
+        },
+        setData(state,action){
+            state.items = action.payload.items
+            state.TotalArticle = action.payload.TotalArticle
+            state.TotalPrice = action.payload.TotalPrice
         }
     }
 });

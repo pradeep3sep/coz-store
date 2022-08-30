@@ -3,6 +3,8 @@ import { useDispatch} from "react-redux";
 import { CartActions } from '../Store/CartProdcutReducer';
 import swal from "sweetalert";
 import CurrencyValue from "../Multicurrency/CurrencyValue";
+import { removeItemInCart } from "../RealTimeDatabse/FirestoreDatabase";
+import { changeQtyInCart } from "../RealTimeDatabse/FirestoreDatabase";
 
 export default function ProductTable(props) {
     const comeData = props.data
@@ -10,6 +12,7 @@ export default function ProductTable(props) {
 
     const removeArticle = ()=>{
       dispatch(CartActions.removeproduct(props.data));
+      removeItemInCart(comeData)
       swal("Congratulations!", "Your product has been removed from the cart!", "success");
     }
 
@@ -17,6 +20,7 @@ export default function ProductTable(props) {
       dispatch(CartActions.changeQty({needAction: "decreaseQty",id: comeData.id,Size: comeData.Size} ));
     }
     function increaseQty(){
+      // changeQtyInCart({needAction: "increaseQty",id: comeData.id,Size: comeData.Size})
       // dispatch(CartActions.removeproduct(props.data));
       dispatch(CartActions.changeQty({needAction: "increaseQty",id: comeData.id,Size: comeData.Size} ));
     }

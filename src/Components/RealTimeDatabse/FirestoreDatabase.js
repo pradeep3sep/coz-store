@@ -1,7 +1,6 @@
 
 import { getAuth } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
-import swal from 'sweetalert';
 
 
 //!this part is here the intilization
@@ -85,6 +84,91 @@ export async function removeItemWishlist(products) {
     console.log("kr di ccheck kr");
 
 
+  } else {
+    console.log("No such document!");
+  }  
+}
+
+//this is for adding the cart item
+export async function addItemInCart(allcart) {
+  try {
+    const userDocRef = doc(db, 'users', auth.currentUser.uid);
+    const userSnapshot = await getDoc(userDocRef);
+    // console.log("userSnapshot",userSnapshot);
+    if (userSnapshot.exists()) {
+        try {
+          await setDoc(userDocRef, {
+            Cart : allcart
+          },
+          {
+            merge: true
+          });
+          console.log("cart add kr di ccheck kr");
+        } catch (error) {
+          console.log('error creating the cart', error.message);
+        }
+    } else {
+        alert("please login")
+    }
+  } catch (error){
+    console.log(error);
+  }
+}
+
+export async function removeItemInCart(products) {
+  const userDocRef = doc(db, 'users', auth.currentUser.uid);
+  const docSnap = await getDoc(userDocRef);
+  let oldCart = [];
+  if (docSnap.exists()) {
+    oldCart = docSnap.data().Cart
+    let newitems  = oldCart.items.filter((item)=> item.id !== products.id)
+    console.log("newitems",newitems);
+    let newCart = {
+      TotalArticle : oldCart.TotalArticle -1,
+      items : newitems,
+      TotalPrice: oldCart.TotalPrice - (products.Quantity * products.Price.mrpprice)
+    }
+
+    await setDoc(userDocRef, {
+      Cart : newCart
+    },
+    {
+      merge: true
+    });
+    console.log("kr di ccheck kr");
+  } else {
+    console.log("No such document!");
+  }  
+}
+
+export async function changeQtyInCart(typeNdetails){
+  console.log("im called");
+  const userDocRef = doc(db, 'users', auth.currentUser.uid);
+  const docSnap = await getDoc(userDocRef);
+  let oldCart = [];
+  if (docSnap.exists()) {
+    oldCart = docSnap.data().Cart;
+    let updateArticle = ''
+    const restArticle = oldCart.items.filter((item)=> item.id !== typeNdetails.id && item.Size !== typeNdetails.Size)
+    if (typeNdetails.needAction === 'increaseQty') {
+      updateArticle = oldCart.items.find((item)=> item.id === typeNdetails.id && item.Size === typeNdetails.Size)
+      updateArticle.Quantity++;
+
+      // if (updateArticle.Quantity < 2) {
+      //   state.items = state.items.filter((item)=> item.id !== changeArticle.id || item.Size !== changeArticle.Size)
+      //   state.TotalArticle--;
+      // } else {
+      // }
+    } else {
+
+    }
+    await setDoc(userDocRef, {
+      Cart : [updateArticle,...restArticle]
+    },
+    {
+      merge: true
+    });
+    console.log("kr di ccheck kr");
   } else {
     console.log("No such document!");
   }  

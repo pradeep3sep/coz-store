@@ -5,6 +5,7 @@ import { useDispatch} from "react-redux";
 import { UiActions } from "../Store/UiReducer";
 import { WishlistActions } from "../Store/WishlistReducer";
 import { getAuth } from "firebase/auth";
+import { CartActions } from "../Store/CartProdcutReducer";
 import {gettingUserDetailsfromFirestore} from "../RealTimeDatabse/FirestoreDatabase"
 
 
@@ -23,11 +24,22 @@ export default function IconHeader() {
     items: [],
     TotalArticle: 0
   })
+  const [cart, setcart] = useState({
+    items: [],
+    TotalArticle: 0,
+    TotalPrice: 0,
+    currentCurrency: {
+      setvalue: 'INR(₹)',
+      symbol: '₹',
+      upiprice: 'mrpprice'
+    }
+  })
 
   useEffect(() => {
     dispatch(UiActions.setname({displayName : authState.displayName, email : authState.email,photoURL : authState.photoURL }))
     dispatch(WishlistActions.activeproduct({items : wishState.items, TotalArticle : wishState.TotalArticle }))
-  }, [dispatch , authState,wishState])
+    dispatch(CartActions.setData(cart))
+  }, [dispatch , authState,wishState,cart])
 
 
   useEffect(() => {
@@ -46,9 +58,21 @@ export default function IconHeader() {
       const datas = gettingUserDetailsfromFirestore().then((response)=> {
         // console.log("response is here",response);
         setwishState({
-        items: response.allwishlist.items,
-        TotalArticle: response.allwishlist.TotalArticle
-      })})
+          items: response.allwishlist.items,
+          TotalArticle: response.allwishlist.TotalArticle
+        })
+
+        setcart({
+          items: response.Cart.items,
+          TotalArticle: response.Cart.TotalArticle,
+          TotalPrice: response.Cart.TotalPrice,
+          currentCurrency: {
+            setvalue: 'INR(₹)',
+            symbol: '₹',
+            upiprice: 'mrpprice'
+          }
+        })
+    })
     
       
     }, [auth.currentUser])

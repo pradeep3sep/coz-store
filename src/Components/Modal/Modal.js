@@ -8,6 +8,8 @@ import ShareIcon from './ShareIcon';
 import { useDispatch } from 'react-redux';
 import { CartActions } from '../Store/CartProdcutReducer';
 import CurrencyValue from '../Multicurrency/CurrencyValue';
+import {useSelector} from "react-redux";
+import { addItemInCart } from '../RealTimeDatabse/FirestoreDatabase';
 
 const initValue = {
 	Image: '',
@@ -79,18 +81,18 @@ export default function Modal(props) {
 	}
 	function qtySelected(qty){
 		productdispatch({type: 'QTY_SELECTED', value: qty})
+		// console.log("qty",qty);
 	}
 	function showZoomModal(){
 		setzoomModal(!zoomModal)
 	}
+
+	const cartqty = useSelector(state => state.Cart)
 	function AddToCart(){
 		if (productState.Size && productState.Color) {
 			dispatch(CartActions.addproduct(productState))
-			if (localStorage.getItem("isLoggedIn")) {
-				
-			} else {
-				localStorage.setItem("withoutLogProductid", productState.id);
-			}
+			const cartdata = addItemInCart({items : [productState,...cartqty.items], TotalArticle : cartqty.TotalArticle + 1, TotalPrice : cartqty.TotalPrice + (productState.Price.mrpprice * productState.Quantity)})
+			console.log("productState",productState);
 			swal("Congratulations!", "Your product has been added to the cart!", "success");
 		} else {
 			swal("OOPS!", "Please select all the combination", "error");

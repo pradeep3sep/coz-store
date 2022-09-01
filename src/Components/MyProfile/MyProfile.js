@@ -21,6 +21,7 @@ export default function MyProfile() {
             // Sign-out successful.
             console.log(response,"log out");
             dispatch(UiActions.setname({displayName: '', email : "" }));
+            localStorage.clear();
             swal("Congratulations!", "You have Sign out successfully!", "success");
 
             navigate("/");

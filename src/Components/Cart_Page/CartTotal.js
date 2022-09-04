@@ -1,27 +1,42 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
-import displayRazorpay1 from "../testRazorpay/utils/PaymentGateway";
+import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
+import swal from "sweetalert";
+import InitialLoader from "../Loader/InitialLoader";
+import { useState } from 'react';
 
 export default function CartTotal() {
+
+  const [orderId, setorderId] = useState()
+
   const cartTotalPrice = useSelector(state => state.Cart.TotalPrice)
+  const userName = useSelector(state => state.UiThing.logName)
+  const genReceipt = userName + Math.round(Math.random()*10000000)
+  const userEmail = useSelector(state => state.UiThing.logEmail)
+  const TotalPrice = useSelector(state => state.Cart.TotalPrice)
 
   var options = {
     "key": process.env.REACT_APP_KEY_ID, // Enter the Key ID generated from the Dashboard
-    "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "amount": TotalPrice * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
     "currency": "INR",
-    "name": "Acme Corp",
-    "description": "Test Transaction",
-    "image": "https://example.com/your_logo",
-    "order_id": "order_K6CEbaQhGuoSDR", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "name": "CozaStore Corp",
+    "description": "Free Transaction, click any mode",
+    "image": "https://firebasestorage.googleapis.com/v0/b/coz-store.appspot.com/o/pin.png?alt=media&token=00b6b752-7f94-4182-8702-c4e022964e65",
+    "order_id": orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
     "handler": function (response){
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature)
+      swal({
+        title : "Congratulations! Your Order has been placed successfully!",
+        text: `Your Order_id is ${response.razorpay_payment_id}`,
+        icon: "success",
+      });
+        // alert(response.razorpay_payment_id);
+        // alert(response.razorpay_order_id);
+        // alert(response.razorpay_signature)
     },
     "prefill": {
-        "name": "Gaurav Kumar",
-        "email": "gaurav.kumar@example.com",
+        "name": userName,
+        "email": userEmail,
         "contact": "9999999999"
     },
     "notes": {
@@ -41,7 +56,10 @@ export default function CartTotal() {
           alert(response.error.metadata.order_id);
           alert(response.error.metadata.payment_id);
   });
-  function displayRazorpay(e){
+  async function  paymenthandler(e){
+    // await setLoader(true)
+    const backendhit = await displayRazorpay(TotalPrice,genReceipt)
+    setorderId(backendhit)
     rzp1.open();
     e.preventDefault();
   }
@@ -51,6 +69,7 @@ export default function CartTotal() {
     <Helmet>
         <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     </Helmet>
+    {/* { Loader &&  <InitialLoader/>} */}
     <div className="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
       <div className="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
         <h4 className="mtext-109 cl2 p-b-30">Cart Totals</h4>
@@ -124,7 +143,7 @@ export default function CartTotal() {
           </div>
         </div>
 
-        <div onClick={displayRazorpay1} className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+        <div onClick={paymenthandler} className="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
           Proceed to Checkout
         </div>
       </div>

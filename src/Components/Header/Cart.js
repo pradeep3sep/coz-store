@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import { useDispatch} from "react-redux";
 import { UiActions } from "../Store/UiReducer";
 import { Link } from "react-router-dom";
-import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
+import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
 
 
 export default function Cart(props) {

@@ -5,7 +5,7 @@ import Coupan from "./Coupan";
 import ProductTable from "./ProductTable";
 import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
-import displayRazorpay from "../testRazorpay/utils/PaymentGateway";
+import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
 
 export default function Cart() {
   const cartproductdetails = useSelector(state => state.Cart.items)

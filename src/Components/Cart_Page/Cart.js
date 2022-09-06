@@ -6,9 +6,18 @@ import ProductTable from "./ProductTable";
 import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
 import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
+import { useEffect } from "react";
 
 export default function Cart() {
   const cartproductdetails = useSelector(state => state.Cart.items)
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+  },[])
+  
 
   return (
     <div>

@@ -7,8 +7,11 @@ import {useSelector} from "react-redux";
 import { Link } from "react-router-dom";
 import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
 import { useEffect } from "react";
+import InitialLoader from "../Loader/InitialLoader";
+import { useState } from "react";
 
 export default function Cart() {
+  const [loader, setloader] = useState(false)
   const cartproductdetails = useSelector(state => state.Cart.items)
 
   useEffect(() => {
@@ -18,10 +21,14 @@ export default function Cart() {
     document.body.appendChild(script);
   },[])
   
+  function loaderhandler(val){
+    setloader(val)
+  }
 
   return (
-    <div>
-      <div className="wrap-header-cart js-panel-cart">
+    <>
+      
+      <div className="pra wrap-header-cart js-panel-cart">
         <div className="s-full js-hide-cart"></div>
 
         <div className="header-cart flex-col-l p-l-65 p-r-25">
@@ -78,6 +85,7 @@ export default function Cart() {
         </div>
       </div>
       <BreadCrum/>
+      {loader && <InitialLoader />}
       {cartproductdetails.length ? 
       
         <form className="bg0 p-t-75 p-b-85">
@@ -103,7 +111,7 @@ export default function Cart() {
                 <Coupan/>
               </div>
             </div>
-            <CartTotal/>
+            <CartTotal loaderhandler={loaderhandler}/>
           </div>
         </div>
       </form>
@@ -113,6 +121,6 @@ export default function Cart() {
       <p className="text-center p-t-200 p-b-200">You have no items in your shopping cart. <Link to='/product'>Click</Link> here to continue shopping.</p>
       }
       
-    </div>
+    </>
   );
 }

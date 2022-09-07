@@ -3,10 +3,9 @@ import {useSelector} from "react-redux";
 import {Helmet} from "react-helmet";
 import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
 import swal from "sweetalert";
-import InitialLoader from "../Loader/InitialLoader";
 import { useState } from 'react';
 
-export default function CartTotal() {
+export default function CartTotal(props) {
 
   const [orderId, setorderId] = useState()
 
@@ -57,8 +56,9 @@ export default function CartTotal() {
           alert(response.error.metadata.payment_id);
   });
   async function  paymenthandler(e){
-    // await setLoader(true)
+    props.loaderhandler(true)
     const backendhit = await displayRazorpay(TotalPrice,genReceipt)
+    props.loaderhandler(false)
     setorderId(backendhit)
     rzp1.open();
     e.preventDefault();

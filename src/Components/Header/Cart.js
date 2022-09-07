@@ -4,10 +4,19 @@ import {useSelector} from "react-redux";
 import { useDispatch} from "react-redux";
 import { UiActions } from "../Store/UiReducer";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
 
 
 export default function Cart(props) {
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+  },[])
+
   const dispatch = useDispatch();
   const cartVisStatus = useSelector(state => state.UiThing.cartVisibility)
 

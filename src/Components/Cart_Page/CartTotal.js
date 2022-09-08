@@ -4,6 +4,7 @@ import {Helmet} from "react-helmet";
 import displayRazorpay from "../testRazorpay/utils/backendpaymentcall";
 import swal from "sweetalert";
 import { useState } from 'react';
+import Pincode from "./Pincode";
 
 export default function CartTotal(props) {
 
@@ -132,7 +133,7 @@ export default function CartTotal(props) {
             </div> */}
           </div>
         </div>
-
+        <Pincode/>
         <div className="flex-w flex-t p-t-27 p-b-33">
           <div className="size-208">
             <span className="mtext-101 cl2">Total:</span>

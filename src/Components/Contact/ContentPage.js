@@ -1,18 +1,48 @@
 import React from 'react'
 import GoogleMapReact from 'google-map-react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 
-const AnyReactComponent = ({ text }) => <div ><div className='mylocation'>{text}</div><div><img src={require("../../images/location.svg").default} className='location' alt="marker" /></div></div>;
+const AnyReactComponent = ({ text }) => <div ><div className='mylocation'>{text}</div><div><img src={require('../../images/location.svg')} className='location' alt="Your Location" /></div></div>;
 
 export default function ContentPage() {
-
-	const defaultProps = {
+	const [coordinate, setcoordinate] = useState({
 		center: {
 		  lat: 28.62862815570484,
 		  lng: 77.33748584995749
 		},
 		zoom: 15
-	  };
+	  })
+	// const defaultProps = {
+	// 	center: {
+	// 	  lat: 28.62862815570484,
+	// 	  lng: 77.33748584995749
+	// 	},
+	// 	zoom: 15
+	//   };
+	console.log("coordinate",coordinate);
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition((position) => {
+			setcoordinate(
+				{
+					center: {
+					  lat: position.coords.latitude,
+					  lng: position.coords.longitude
+					},
+					zoom: 15
+				  }
+			)
+			// defaultProps.center.lat = position.coords.latitude;
+			// defaultProps.center.lat = position.coords.longitude;
+			// console.log("defaultProps",defaultProps);
+		});
+	
+	  return () => {
+		
+	  }
+	}, [])
+	
 	
   return (
     <>
@@ -52,7 +82,7 @@ export default function ContentPage() {
 							</span>
 
 							<p className="stext-115 cl6 size-213 p-t-18">
-								Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+								Coza Store Center Ground floor, 197 Sangam Park, Khoda Colony, Ghaziabad, UP 201001 India
 							</p>
 						</div>
 					</div>
@@ -68,7 +98,7 @@ export default function ContentPage() {
 							</span>
 
 							<p className="stext-115 cl1 size-213 p-t-18">
-								+1 800 1236879
+								+91 750 3383036
 							</p>
 						</div>
 					</div>
@@ -84,7 +114,7 @@ export default function ContentPage() {
 							</span>
 
 							<p className="stext-115 cl1 size-213 p-t-18">
-								contact@example.com
+								pradeep3sep@gmail.com
 							</p>
 						</div>
 					</div>
@@ -95,13 +125,13 @@ export default function ContentPage() {
 			<div style={{ height: '100vh', width: '88%', margin: "auto" }}>
 				<GoogleMapReact
 					bootstrapURLKeys={{ key: "" }}
-					defaultCenter={defaultProps.center}
-					defaultZoom={defaultProps.zoom}
+					defaultCenter={coordinate.center}
+					defaultZoom={coordinate.zoom}
 				>
 					<AnyReactComponent
-					lat={28.62862815570484}
-					lng={77.33748584995749}
-					text="I'm Here"
+					lat={coordinate.center.lat}
+					lng={coordinate.center.lng}
+					text="You are Here"
 					/>
 				</GoogleMapReact>
 			</div>

@@ -37,12 +37,12 @@ export default function App(props) {
             <Slider {...settings} ref={(slider2) => setNav2(slider2)} asNavFor={nav1}>
               {props.imageArray.map((arr,index)=>{
                 return <div key={`_p${index}`}>
-                          {/* <img src={arr} alt="" width="100px" /> */}
-                          <Image
+                          <img src={arr} alt="" width="100px" />
+                          {/* <Image
                             src={arr}
                             width="100px"
                             fallback={<Shimmer width={85} height={106} />}
-                          />
+                          /> */}
                         </div>
               })}
           </Slider>
@@ -51,12 +51,12 @@ export default function App(props) {
         <Slider {...settings1} ref={(slider1) => setNav1(slider1)} asNavFor={nav2} >
             {props.imageArray.map((arr,index)=>{
                 return <div key={`_p${index}`}>
-                          {/* <img src={arr} alt="" width="551px" /> */}
-                          <Image
+                          <img src={arr} alt="" width="551px" />
+                          {/* <Image
                             src={arr}
                             width="100px"
                             fallback={<Shimmer width={523} height={648} />}
-                          />
+                          /> */}
                         </div>
               })}
           </Slider>

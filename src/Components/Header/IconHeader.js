@@ -44,38 +44,41 @@ export default function IconHeader() {
 
   useEffect(() => {
     const unregisterAuthObserver = getAuth().onAuthStateChanged(user => {
-      setAuthState({displayName : user.displayName,
-      email : user.email,
-      photoURL : user.photoURL})
-    
-      const encryptedData =  Encription(displayName,"cozstore");
-      localStorage.setItem("name", encryptedData);
+      if (user) {
+        setAuthState({displayName : user.displayName,
+          email : user.email,
+          photoURL : user.photoURL})
+        
+          const encryptedData =  Encription(displayName,"cozstore");
+          localStorage.setItem("name", encryptedData);
+      }
+      
     }
       )
     
-    // console.log("datas",datas);
       return () => {unregisterAuthObserver() }
     }, [])
 
 
     useEffect(() => {
       const datas = gettingUserDetailsfromFirestore().then((response)=> {
-        // console.log("response is here",response);
-        setwishState({
-          items: response.allwishlist.items,
-          TotalArticle: response.allwishlist.TotalArticle
-        })
-
-        setcart({
-          items: response.Cart.items,
-          TotalArticle: response.Cart.TotalArticle,
-          TotalPrice: response.Cart.TotalPrice,
-          currentCurrency: {
-            setvalue: 'INR(₹)',
-            symbol: '₹',
-            upiprice: 'mrpprice'
-          }
-        })
+        if (response) {
+          setwishState({
+            items: response.allwishlist.items,
+            TotalArticle: response.allwishlist.TotalArticle
+          })
+  
+          setcart({
+            items: response.Cart.items,
+            TotalArticle: response.Cart.TotalArticle,
+            TotalPrice: response.Cart.TotalPrice,
+            currentCurrency: {
+              setvalue: 'INR(₹)',
+              symbol: '₹',
+              upiprice: 'mrpprice'
+            }
+          })
+        }
     })
     
       
